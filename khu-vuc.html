@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khu Vực Hoạt Động – PCCC Phước Long | TP. Hồ Chí Minh &amp; Lân Cận</title>
+  <meta name="description" content="PCCC Phước Long cung cấp dịch vụ thi công PCCC và MEP tại TP.HCM: Quận 1, 7, 9, Bình Thạnh, Gò Vấp, Tân Phú, Thủ Đức và các tỉnh lân cận." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pcccphuoclong.vn/khu-vuc.html" />
+  <link rel="icon" type="image/jpeg" href="images/logo/logo.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    .area-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--color-primary);
+      transition: all var(--transition-base);
+    }
+    .area-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-4px);
+      border-left-color: var(--color-accent);
+    }
+    .area-card__district {
+      font-family: var(--font-ui);
+      font-size: var(--text-lg);
+      font-weight: var(--font-black);
+      color: var(--color-secondary);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .area-card__district i { color: var(--color-primary); }
+    .area-card__projects {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .area-card__project-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .area-card__project-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .area-card__project-item::before {
+      content: '▸';
+      color: var(--color-primary);
+      font-size: 0.7rem;
+    }
+    .map-full {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .map-full iframe {
+      width: 100%;
+      height: 500px;
+      border: 0;
+    }
+    @media (max-width: 900px) { .area-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .area-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="scroll-progress" aria-hidden="true"></div>
+<header class="header header--transparent" role="banner">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo" aria-label="PCCC Phước Long"><img src="images/logo/logo.jpeg" alt="Logo" class="header__logo-img" width="50" height="50"/><div class="header__logo-text"><span class="header__logo-name">PCCC Phước Long</span><span class="header__logo-tagline">Fire Protection &amp; MEP</span></div></a>
+    <nav class="nav" role="navigation" aria-label="Menu chính">
+      <a href="index.html" class="nav__link">Trang Chủ</a><a href="gioi-thieu.html" class="nav__link">Giới Thiệu</a><a href="dich-vu.html" class="nav__link">Dịch Vụ</a><a href="du-an.html" class="nav__link">Dự Án</a><a href="lien-he.html" class="nav__link">Liên Hệ</a>
+    </nav>
+    <div class="header__hotline"><a href="tel:0798285114" aria-label="Gọi hotline"><span class="hotline-pulse" aria-hidden="true"></span><i class="fa-solid fa-phone" aria-hidden="true"></i> 079 8285 114</a></div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Mở menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu di động">
+  <a href="index.html" class="mobile-nav__link">Trang Chủ</a><a href="gioi-thieu.html" class="mobile-nav__link">Giới Thiệu</a><a href="dich-vu.html" class="mobile-nav__link">Dịch Vụ</a><a href="du-an.html" class="mobile-nav__link">Dự Án</a><a href="lien-he.html" class="mobile-nav__link">Liên Hệ</a>
+  <a href="tel:0798285114" class="mobile-nav__hotline"><i class="fa-solid fa-phone"></i> 079 8285 114</a>
+</nav>
+
+<main id="main-content">
+  <section class="page-hero" aria-labelledby="area-hero-heading">
+    <div class="container">
+      <div class="page-hero__content">
+        <nav class="breadcrumb" aria-label="Đường dẫn"><a href="index.html">Trang Chủ</a><span class="breadcrumb__sep" aria-hidden="true">›</span><span class="breadcrumb__current" aria-current="page">Khu Vực Hoạt Động</span></nav>
+        <p class="page-hero__label" style="margin-top:var(--space-4)"><i class="fa-solid fa-map-location-dot"></i> Phạm Vi Phục Vụ</p>
+        <h1 class="page-hero__title" id="area-hero-heading">Khu Vực<br><span>Hoạt Động</span></h1>
+        <p class="page-hero__desc">PCCC Phước Long triển khai thi công PCCC và MEP trên toàn TP. Hồ Chí Minh và các tỉnh lân cận như Bình Dương, Đồng Nai, Long An.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="section" style="background:var(--color-off-white)">
+    <div class="container">
+      <header class="section-header" data-aos="fade-up">
+        <span class="section-label">Bản Đồ</span>
+        <h2 class="section-title">Vị Trí &amp; <span>Khu Vực Phục Vụ</span></h2>
+      </header>
+      <div class="map-full" data-aos="scale-in">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125331.62!2d106.6297!3d10.8231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2svn!4v1617000000000"
+          width="100%" height="500"
+          style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bản đồ khu vực hoạt động PCCC Phước Long tại TP.HCM"
+          aria-label="Google Maps khu vực TP. Hồ Chí Minh">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area breakdown -->
+  <section class="section" aria-labelledby="district-heading">
+    <div class="container">
+      <header class="section-header" data-aos="fade-up">
+        <span class="section-label">Phân Vùng Dự Án</span>
+        <h2 class="section-title" id="district-heading">Dự Án Theo <span>Khu Vực</span></h2>
+        <p class="section-subtitle">Từ trung tâm Q1 đến Thủ Đức và Gò Vấp — PCCC Phước Long phủ sóng toàn TP.HCM.</p>
+      </header>
+
+      <div class="area-grid">
+        <div class="area-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Quận 1 (CBD)</div>
+          <p class="area-card__projects">5 dự án thi công PCCC</p>
+          <ul class="area-card__project-list" aria-label="Dự án tại Quận 1">
+            <li class="area-card__project-item">Tòa Nhà MPlaza (39 Lê Duẩn)</li>
+            <li class="area-card__project-item">Tòa Nhà Nexus (Tôn Đức Thắng)</li>
+            <li class="area-card__project-item">Tòa Nhà Vietcombank (5 Mê Linh)</li>
+            <li class="area-card__project-item">Time Square (22-36 Nguyễn Huệ)</li>
+            <li class="area-card__project-item">Saigon Centre (65 Lê Lợi)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Quận 7</div>
+          <p class="area-card__projects">1 dự án thi công PCCC</p>
+          <ul class="area-card__project-list" aria-label="Dự án tại Quận 7">
+            <li class="area-card__project-item">Đại Học RMIT (702 Nguyễn Văn Linh)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tp. Thủ Đức</div>
+          <p class="area-card__projects">2 dự án thi công PCCC</p>
+          <ul class="area-card__project-list" aria-label="Dự án tại Thủ Đức">
+            <li class="area-card__project-item">Lumiere Riverside (Võ Nguyên Giáp)</li>
+            <li class="area-card__project-item">TTTM Estilla (88 Song Hành)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Bình Thạnh</div>
+          <p class="area-card__projects">1 dự án thi công PCCC</p>
+          <ul class="area-card__project-list" aria-label="Dự án tại Bình Thạnh">
+            <li class="area-card__project-item">Tòa Nhà CII (152 Điện Biên Phủ)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Quận Tân Phú</div>
+          <p class="area-card__projects">1 dự án thi công PCCC</p>
+          <ul class="area-card__project-list" aria-label="Dự án tại Tân Phú">
+            <li class="area-card__project-item">OfficeHaus – VP Bosch (Bờ Bao Tân Thắng)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="area-card__district"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Phạm Vi Mở Rộng</div>
+          <p class="area-card__projects">Tỉnh thành lân cận</p>
+          <ul class="area-card__project-list" aria-label="Khu vực mở rộng">
+            <li class="area-card__project-item">Bình Dương (KCN, nhà xưởng)</li>
+            <li class="area-card__project-item">Đồng Nai (công trình công nghiệp)</li>
+            <li class="area-card__project-item">Long An (kho bãi, logistics)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" aria-labelledby="area-cta-heading">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__text" data-aos="fade-right">
+          <p class="cta-banner__label">Dự Án Của Bạn Ở Khu Vực Nào?</p>
+          <h2 class="cta-banner__title" id="area-cta-heading">Liên Hệ Để Được Khảo Sát<br><span class="cta-banner__number"><i class="fa-solid fa-phone" style="font-size:0.8em"></i> 079 8285 114</span></h2>
+        </div>
+        <div class="cta-banner__actions" data-aos="fade-left">
+          <a href="tel:0798285114" class="btn btn--accent btn--lg"><i class="fa-solid fa-phone-volume"></i> Gọi Ngay</a>
+          <a href="lien-he.html" class="btn btn--outline btn--lg"><i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="index.html" class="footer__logo"><img src="images/logo/logo.jpeg" alt="Logo" class="footer__logo-img" width="56" height="56" loading="lazy"/><div><div class="footer__logo-name">PCCC Phước Long</div><div class="footer__logo-sub">Fire Protection &amp; MEP</div></div></a>
+        <p class="footer__tagline">Chuyên PCCC và MEP uy tín toàn TP.HCM từ 2016.</p>
+        <div class="footer__cert"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Đủ điều kiện kinh doanh PCCC</div>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Thông Tin Liên Hệ</h3>
+        <address style="font-style:normal">
+          <div class="footer__contact-item"><span class="footer__contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span>71 Út Trà Ôn, KDC Gia Hòa, P. Phước Long B, TP.HCM</span></div>
+          <div class="footer__contact-item"><span class="footer__contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><a href="tel:0798285114" style="color:inherit">079 8285 114</a></div>
+          <div class="footer__contact-item"><span class="footer__contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><a href="mailto:pccc@infophuoclong.com.vn" style="color:inherit">pccc@infophuoclong.com.vn</a></div>
+        </address>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Liên Kết Nhanh</h3>
+        <nav class="footer__links" aria-label="Liên kết chân trang"><a href="index.html" class="footer__link">Trang Chủ</a><a href="dich-vu.html" class="footer__link">Dịch Vụ</a><a href="du-an.html" class="footer__link">Dự Án</a><a href="lien-he.html" class="footer__link">Liên Hệ</a></nav>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__heading">Kết Nối</h3>
+        <div class="footer__socials"><a href="#" class="footer__social" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="#" class="footer__social" aria-label="Zalo"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__bottom-text">&copy; 2025 Công Ty CP PCCC Phước Long. MST: 0313760584.</p>
+      <nav class="footer__bottom-links" aria-label="Liên kết pháp lý"><a href="#" class="footer__bottom-link">Chính sách bảo mật</a><a href="sitemap.xml" class="footer__bottom-link">Sitemap</a></nav>
+    </div>
+  </div>
+</footer>
+
+<div class="float-buttons" aria-label="Liên hệ nhanh">
+  <a href="https://zalo.me/0798285114" class="float-btn float-btn--zalo" data-tooltip="Zalo" target="_blank" rel="noopener" aria-label="Zalo"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></a>
+  <a href="tel:0798285114" class="float-btn float-btn--call" data-tooltip="Gọi ngay" aria-label="Gọi điện"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
+  <button class="float-btn float-btn--top" data-tooltip="Lên đầu trang" id="scroll-top-btn" aria-label="Lên đầu trang"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button>
+</div>
+<script src="js/main.js" defer></script>
+</body>
+</html>

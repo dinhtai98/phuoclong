@@ -1,0 +1,211 @@
+/* ============================================
+   PCCC PHƯỚC LONG — ANIMATIONS
+   animations.css — Scroll, hover, transitions
+   ============================================ */
+
+/* ─── Keyframe Definitions ───────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+}
+@keyframes ring {
+  0%, 100% { transform: rotate(0deg); }
+  10%       { transform: rotate(-10deg); }
+  20%       { transform: rotate(10deg); }
+  30%       { transform: rotate(-8deg); }
+  40%       { transform: rotate(8deg); }
+  50%       { transform: rotate(0deg); }
+}
+@keyframes heroSlide {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes progressBar {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ─── AOS-style Scroll Animations ──────────────
+   Use data-aos attribute on elements.
+   JS will toggle .aos-animate
+   ─────────────────────────────────────────── */
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-aos].aos-animate { opacity: 1; transform: none !important; }
+
+[data-aos="fade-up"]    { transform: translateY(32px); }
+[data-aos="fade-down"]  { transform: translateY(-32px); }
+[data-aos="fade-left"]  { transform: translateX(32px); }
+[data-aos="fade-right"] { transform: translateX(-32px); }
+[data-aos="fade-in"]    { transform: none; }
+[data-aos="scale-in"]   { transform: scale(0.92); }
+[data-aos="zoom-in"]    { transform: scale(0.8); }
+
+/* Delay helpers */
+[data-aos-delay="100"]  { transition-delay: 100ms; }
+[data-aos-delay="150"]  { transition-delay: 150ms; }
+[data-aos-delay="200"]  { transition-delay: 200ms; }
+[data-aos-delay="300"]  { transition-delay: 300ms; }
+[data-aos-delay="400"]  { transition-delay: 400ms; }
+[data-aos-delay="500"]  { transition-delay: 500ms; }
+[data-aos-delay="600"]  { transition-delay: 600ms; }
+[data-aos-delay="700"]  { transition-delay: 700ms; }
+[data-aos-delay="800"]  { transition-delay: 800ms; }
+
+/* ─── Hero Animations ────────────────────────── */
+.hero-content {
+  animation: heroSlide 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-content > * {
+  animation: fadeUp 0.8s ease both;
+}
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+
+/* ─── Counter Animation ──────────────────────── */
+.counter-item {
+  animation: counterUp 0.5s ease both;
+}
+
+/* ─── Hover Micro-animations ─────────────────── */
+/* All CTA links */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+.link-arrow:hover { gap: 12px; }
+
+/* Glow hover on buttons */
+.btn--primary:hover {
+  box-shadow: 0 8px 30px rgba(211,47,47,0.45);
+}
+.btn--accent:hover {
+  box-shadow: 0 8px 30px rgba(255,193,7,0.5);
+}
+
+/* Image zoom on hover containers */
+.img-hover-zoom {
+  overflow: hidden;
+}
+.img-hover-zoom img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-hover-zoom:hover img { transform: scale(1.07); }
+
+/* ─── Loading Skeleton ───────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--color-gray-100) 25%,
+    var(--color-gray-200) 50%,
+    var(--color-gray-100) 75%
+  );
+  background-size: 200% auto;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ─── Scroll Progress Bar ────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ─── Page Transition ────────────────────────── */
+.page-enter {
+  animation: fadeIn 0.4s ease both;
+}
+
+/* ─── Float Animation for decorative elements ── */
+.float-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Slider / Carousel ──────────────────────── */
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Scroll-triggered progress bars ─────────── */
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.progress-bar-fill.animated { width: var(--target-width, 100%); }
+
+/* ─── Ripple Effect ──────────────────────────── */
+.ripple-container { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple-anim 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ─── Notification Toast ─────────────────────── */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.toast {
+  animation: toastIn 0.3s ease;
+}

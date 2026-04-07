@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCCC Phước Long – Hệ Thống PCCC & Cơ Điện Chuyên Nghiệp tại TP.HCM</title>
+  <meta name="description" content="Công ty CP PCCC Phước Long – Chuyên thiết kế, thi công hệ thống PCCC, MEP và cung cấp vật tư thiết bị PCCC uy tín tại TP. Hồ Chí Minh. Hotline: 079 8285 114." />
+  <meta name="keywords" content="PCCC Phước Long, hệ thống phòng cháy chữa cháy, thi công PCCC TPHCM, thiết bị PCCC, MEP, cơ điện" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pcccphuoclong.vn/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PCCC Phước Long – Hệ Thống PCCC & Cơ Điện Chuyên Nghiệp" />
+  <meta property="og:description" content="Thiết kế & thi công hệ thống PCCC, MEP uy tín. 9+ năm kinh nghiệm, 110+ nhân sự, 12+ dự án VIP tại TP.HCM." />
+  <meta property="og:url" content="https://pcccphuoclong.vn/" />
+  <meta property="og:image" content="images/logo/logo.jpeg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/logo/logo.jpeg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Hero & Home specific styles -->
+  <style>
+    /* ── HERO ─────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--color-secondary);
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,25,47,0.92) 0%, rgba(17,34,64,0.8) 40%, rgba(10,25,47,0.65) 100%),
+        url('images/projects/rmit.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+    .hero__particles {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(211,47,47,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,193,7,0.08) 0%, transparent 50%);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: calc(var(--header-height) + var(--space-16)) var(--space-6) var(--space-20);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .hero__text {}
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(211,47,47,0.15);
+      border: 1px solid rgba(211,47,47,0.3);
+      color: #FF8A80;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-6);
+    }
+    .hero__title {
+      font-family: var(--font-ui);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--font-black);
+      color: var(--color-white);
+      line-height: 1.1;
+      margin-bottom: var(--space-6);
+    }
+    .hero__title .highlight {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__subtitle {
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.75);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-10);
+      max-width: 520px;
+    }
+    .hero__cta {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .hero__trust {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+      padding-top: var(--space-8);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero__trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .hero__trust-number {
+      font-family: var(--font-ui);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-black);
+      color: var(--color-white);
+    }
+    .hero__trust-label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero__trust-sep {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+    }
+    /* Hero right cards */
+    .hero__visual {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .hero__card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    .hero__info-card {
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      transition: all var(--transition-base);
+    }
+    .hero__info-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+    .hero__info-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-3);
+    }
+    .hero__info-card-title {
+      font-family: var(--font-ui);
+      font-size: var(--text-base);
+      font-weight: var(--font-bold);
+      color: var(--color-white);
+      margin-bottom: var(--space-1);
+    }
+    .hero__info-card-desc {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.6);
+      line-height: var(--leading-relaxed);
+    }
+    .hero__info-card--wide {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .hero__cert-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: linear-gradient(135deg, rgba(255,193,7,0.15), rgba(255,193,7,0.05));
+      border: 1px solid rgba(255,193,7,0.25);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      flex: 1;
+    }
+    .hero__cert-icon {
+      font-size: 2rem;
+      color: var(--color-accent);
+    }
+    .hero__cert-text strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: var(--text-base);
+      font-weight: var(--font-bold);
+      color: var(--color-white);
+      margin-bottom: 2px;
+    }
+    .hero__cert-text span {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.6);
+    }
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      color: rgba(255,255,255,0.5);
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero__scroll-arrow {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
+    }
+
+    /* ── STATS SECTION ─────────────────────────── */
+    .stats-section {
+      background: var(--color-off-white);
+      padding: var(--space-16) 0;
+    }
+
+    /* ── SERVICES SECTION ──────────────────────── */
+    .services-section {
+      background: var(--color-white);
+      padding: var(--space-20) 0;
+    }
+
+    /* ── PROJECTS SECTION ─────────────────────── */
+    .projects-section {
+      background: var(--color-off-white);
+      padding: var(--space-20) 0;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    /* ── PARTNERS SECTION ─────────────────────── */
+    .partners-section {
+      background: var(--color-white);
+      padding: var(--space-16) 0;
+    }
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-4);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero__content { grid-template-columns: 1fr; padding-top: calc(var(--header-height) + var(--space-12)); }
+      .hero__visual { display: none; }
+      .hero__title { font-size: clamp(2rem, 6vw, 3rem); }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .hero__trust { gap: var(--space-4); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Công Ty CP PCCC Phước Long",
+    "alternateName": "PCCC Phuoc Long",
+    "url": "https://pcccphuoclong.vn",
+    "logo": "https://pcccphuoclong.vn/images/logo/logo.jpeg",
+    "description": "Chuyên thiết kế, thi công hệ thống PCCC, MEP và cung cấp thiết bị PCCC uy tín tại TP.HCM.",
+    "telephone": "+84798285114",
+    "email": "pccc@infophuoclong.com.vn",
+    "taxID": "0313760584",
+    "foundingDate": "2016-04-19",
+    "areaServed": "Vietnam",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "71 Út Trà Ôn, KDC Gia Hòa",
+      "addressLocality": "Phường Phước Long B, TP. Hồ Chí Minh",
+      "addressCountry": "VN"
+    },
+    "openingHours": "Mo-Sa 07:30-17:30",
+    "sameAs": [
+      "https://www.facebook.com/pcccphuoclong"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Scroll progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="header header--transparent" role="banner">
+    <div class="header__inner">
+      <!-- Logo -->
+      <a href="index.html" class="header__logo" aria-label="PCCC Phước Long – Trang chủ">
+        <img src="images/logo/logo.jpeg" alt="Logo PCCC Phước Long" class="header__logo-img" width="50" height="50" />
+        <div class="header__logo-text">
+          <span class="header__logo-name">PCCC Phước Long</span>
+          <span class="header__logo-tagline">Fire Protection &amp; MEP</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav" role="navigation" aria-label="Menu chính">
+        <a href="index.html"     class="nav__link active">Trang Chủ</a>
+        <a href="gioi-thieu.html" class="nav__link">Giới Thiệu</a>
+        <a href="dich-vu.html"   class="nav__link">Dịch Vụ</a>
+        <a href="du-an.html"     class="nav__link">Dự Án</a>
+        <a href="lien-he.html"   class="nav__link">Liên Hệ</a>
+      </nav>
+
+      <!-- Hotline -->
+      <div class="header__hotline">
+        <a href="tel:0798285114" id="header-hotline-btn" aria-label="Gọi hotline 079 8285 114">
+          <span class="hotline-pulse" aria-hidden="true"></span>
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          079 8285 114
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu di động">
+    <a href="index.html"      class="mobile-nav__link">Trang Chủ</a>
+    <a href="gioi-thieu.html" class="mobile-nav__link">Giới Thiệu</a>
+    <a href="dich-vu.html"    class="mobile-nav__link">Dịch Vụ</a>
+    <a href="du-an.html"      class="mobile-nav__link">Dự Án</a>
+    <a href="lien-he.html"    class="mobile-nav__link">Liên Hệ</a>
+    <a href="tel:0798285114"  class="mobile-nav__hotline">
+      <i class="fa-solid fa-phone"></i> 079 8285 114
+    </a>
+  </nav>
+
+  <main id="main-content">
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__particles" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <!-- Left: Text -->
+      <div class="hero__text hero-content">
+        <div class="hero__badge">
+          <i class="fa-solid fa-shield-halved"></i>
+          Giải Pháp PCCC &amp; MEP Toàn Diện
+        </div>
+        <h1 class="hero__title" id="hero-heading">
+          Bảo Vệ Tài Sản &amp;<br>
+          <span class="highlight">Tính Mạng Con Người</span><br>
+          Là Sứ Mệnh Của Chúng Tôi
+        </h1>
+        <p class="hero__subtitle">
+          PCCC Phước Long — đơn vị chuyên nghiệp hàng đầu tại TP.HCM trong lĩnh vực
+          thiết kế, thi công hệ thống phòng cháy chữa cháy và cơ điện (MEP) cho các
+          cao ốc, TTTM, bệnh viện và công trình dân dụng.
+        </p>
+        <div class="hero__cta">
+          <a href="lien-he.html" class="btn btn--primary btn--lg" id="hero-cta-contact">
+            <i class="fa-solid fa-envelope"></i>
+            Tư Vấn Miễn Phí
+          </a>
+          <a href="du-an.html" class="btn btn--outline btn--lg" id="hero-cta-projects">
+            <i class="fa-solid fa-images"></i>
+            Xem Dự Án
+          </a>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-item">
+            <span class="hero__trust-number">9+</span>
+            <span class="hero__trust-label">Năm Kinh Nghiệm</span>
+          </div>
+          <div class="hero__trust-sep" aria-hidden="true"></div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-number">110+</span>
+            <span class="hero__trust-label">Nhân Sự</span>
+          </div>
+          <div class="hero__trust-sep" aria-hidden="true"></div>
+          <div class="hero__trust-item">
+            <span class="hero__trust-number">12+</span>
+            <span class="hero__trust-label">Dự Án VIP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual Cards -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__card-row">
+          <div class="hero__info-card">
+            <div class="hero__info-card-icon">🔥</div>
+            <div class="hero__info-card-title">Hệ Thống PCCC</div>
+            <div class="hero__info-card-desc">Thiết kế &amp; thi công đầy đủ từ sprinkler đến trung tâm báo cháy</div>
+          </div>
+          <div class="hero__info-card">
+            <div class="hero__info-card-icon">⚡</div>
+            <div class="hero__info-card-title">Cơ Điện MEP</div>
+            <div class="hero__info-card-desc">Điện, nước, điều hòa, thông gió cho mọi loại công trình</div>
+          </div>
+        </div>
+        <div class="hero__card-row">
+          <div class="hero__info-card">
+            <div class="hero__info-card-icon">🏗️</div>
+            <div class="hero__info-card-title">Vật Tư Thiết Bị</div>
+            <div class="hero__info-card-desc">Cung cấp thiết bị PCCC chính hãng, đầy đủ chứng nhận</div>
+          </div>
+          <div class="hero__info-card">
+            <div class="hero__info-card-icon">📋</div>
+            <div class="hero__info-card-title">Thẩm Duyệt PCCC</div>
+            <div class="hero__info-card-desc">Hỗ trợ xin giấy phép &amp; nghiệm thu từ cơ quan PCCC</div>
+          </div>
+        </div>
+        <div class="hero__cert-badge">
+          <div class="hero__cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="hero__cert-text">
+            <strong>Chứng Nhận Đủ Điều Kiện PCCC</strong>
+            <span>Cấp bởi Cục Cảnh sát PCCC &amp; CNCH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-label="Cuộn xuống để xem thêm">
+      <span>Khám phá</span>
+      <div class="hero__scroll-arrow" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS BAR
+  ═══════════════════════════════════════════ -->
+  <section class="stats-section" aria-label="Số liệu nổi bật">
+    <div class="container">
+      <div class="stats-bar" role="list">
+        <div class="stat-item" role="listitem" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-calendar-days"></i></div>
+          <span class="stat-number" data-count="9" data-suffix="+" aria-label="9 năm kinh nghiệm">0</span>
+          <p class="stat-label">Năm Kinh Nghiệm</p>
+        </div>
+        <div class="stat-item" role="listitem" data-aos="fade-up" data-aos-delay="150">
+          <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
+          <span class="stat-number" data-count="110" data-suffix="+" aria-label="110 nhân sự">0</span>
+          <p class="stat-label">Cán Bộ &amp; Kỹ Thuật Viên</p>
+        </div>
+        <div class="stat-item" role="listitem" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-building"></i></div>
+          <span class="stat-number" data-count="12" data-suffix="+" aria-label="12 dự án VIP">0</span>
+          <p class="stat-label">Dự Án Cao Ốc VIP</p>
+        </div>
+        <div class="stat-item" role="listitem" data-aos="fade-up" data-aos-delay="450">
+          <div class="stat-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="stat-number" data-count="3" data-suffix="" aria-label="3 lĩnh vực">0</span>
+          <p class="stat-label">Lĩnh Vực Chuyên Sâu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="services-section section" id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <header class="section-header" data-aos="fade-up">
+        <span class="section-label">Dịch Vụ Của Chúng Tôi</span>
+        <h2 class="section-title" id="services-heading">
+          3 Lĩnh Vực <span>Chuyên Sâu</span>
+        </h2>
+        <p class="section-subtitle">
+          Từ tư vấn, cung cấp thiết bị đến thi công hoàn chỉnh — PCCC Phước Long là đối tác
+          tin cậy cho mọi công trình.
+        </p>
+      </header>
+
+      <div class="grid grid-3" style="gap: var(--space-8);">
+        <!-- Service 1 -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card__icon">🔧</div>
+          <h3 class="service-card__title">Cung Cấp Thiết Bị &amp; Vật Tư</h3>
+          <p class="service-card__desc">
+            Cung cấp đầy đủ thiết bị, vật tư PCCC và cơ điện chính hãng, đảm bảo tiêu chuẩn
+            kỹ thuật và an toàn cao nhất.
+          </p>
+          <ul class="service-card__list" aria-label="Danh mục thiết bị">
+            <li class="service-card__list-item">Ống nhựa, ống bê tông, phụ kiện cấp nước</li>
+            <li class="service-card__list-item">Kết cấu thép: khung, giàn, thang máng</li>
+            <li class="service-card__list-item">Thiết bị điện: dây cáp, tủ điện, Aptomat</li>
+            <li class="service-card__list-item">Ắc quy, đồng hồ đo điện, cầu dao</li>
+          </ul>
+            Xem cửa hàng <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="service-card__icon">⚙️</div>
+          <h3 class="service-card__title">Thiết Kế &amp; Thi Công MEP &amp; PCCC</h3>
+          <p class="service-card__desc">
+            Thiết kế và thi công hệ thống cơ điện lạnh, cấp thoát nước và hệ thống PCCC
+            toàn diện cho mọi loại công trình.
+          </p>
+          <ul class="service-card__list" aria-label="Hạng mục thi công">
+            <li class="service-card__list-item">Hệ thống PCCC (sprinkler, báo cháy, CO2...)</li>
+            <li class="service-card__list-item">Cấp thoát nước, điện chiếu sáng, điện an ninh</li>
+            <li class="service-card__list-item">Điều hòa, thông gió, thang máng cáp</li>
+            <li class="service-card__list-item">Thẩm duyệt &amp; nghiệm thu PCCC với cơ quan chức năng</li>
+          </ul>
+          <a href="dich-vu.html" class="service-card__link link-arrow" id="service-mep-link">
+            Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card__icon">💡</div>
+          <h3 class="service-card__title">Tư Vấn Chuyên Sâu</h3>
+          <p class="service-card__desc">
+            Đội ngũ hơn 20 kỹ sư giàu kinh nghiệm sẵn sàng tư vấn các giải pháp tối ưu,
+            tiết kiệm chi phí và đảm bảo tiêu chuẩn pháp lý.
+          </p>
+          <ul class="service-card__list" aria-label="Dịch vụ tư vấn">
+            <li class="service-card__list-item">Tư vấn hệ thống cơ điện &amp; cấp thoát nước</li>
+            <li class="service-card__list-item">Tư vấn trạm điện trung thế, máy biến áp</li>
+            <li class="service-card__list-item">Thiết kế bản vẽ kỹ thuật thi công</li>
+            <li class="service-card__list-item">Hỗ trợ xin phép xây dựng &amp; PCCC</li>
+          </ul>
+          <a href="dich-vu.html#tu-van" class="service-card__link link-arrow" id="service-consult-link">
+            Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURED PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section class="projects-section" id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <header class="section-header" data-aos="fade-up">
+        <span class="section-label">Dự Án Tiêu Biểu</span>
+        <h2 class="section-title" id="projects-heading">
+          Công Trình <span>Nổi Bật</span>
+        </h2>
+        <p class="section-subtitle">
+          Hơn 12 dự án cao ốc văn phòng, TTTM và khu dân cư hạng A tại TP.HCM
+          đã được PCCC Phước Long thi công và nghiệm thu thành công.
+        </p>
+      </header>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/rmit.jpg" alt="Dự án Đại học RMIT – Hệ thống PCCC" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC</span>
+            <span class="project-card__year">2025</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Đại Học RMIT Việt Nam</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 702 Nguyễn Văn Linh, Quận 7, TP.HCM</p>
+            <p class="project-card__desc">Thi công hệ thống PCCC toà nhà 808, Căn tin và Nhà xe P1&amp;P2.</p>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/mplaza.jpg" alt="Dự án Tòa nhà MPlaza Sài Gòn" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC + Nghiệm thu</span>
+            <span class="project-card__year">2025</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Tòa Nhà MPlaza Sài Gòn</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 39 Lê Duẩn, P. Bến Nghé, Quận 1</p>
+            <p class="project-card__desc">VP Masan (T8,12) + VP Becamex (T10,20) — Thiết kế, thi công và nghiệm thu PCCC.</p>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/nexus.jpg" alt="Dự án Tòa nhà Nexus" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC</span>
+            <span class="project-card__year">T7/2025</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Tòa Nhà Nexus</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 3A-3B Tôn Đức Thắng, P. Bến Nghé</p>
+            <p class="project-card__desc">VP Justco Việt Nam (Tầng 19) — Thiết kế, thi công, nghiệm thu PCCC.</p>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/lumiere.jpg" alt="Dự án Lumiere Riverside" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC</span>
+            <span class="project-card__year">5/2024</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Lumiere Riverside</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 277 Võ Nguyên Giáp, An Phú, Thủ Đức</p>
+            <p class="project-card__desc">Tầng trệt, T1→T7 — Thiết kế, thi công và nghiệm thu PCCC.</p>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/vietcombank.jpg" alt="Dự án Tòa nhà Vietcombank" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC + Bảo trì</span>
+            <span class="project-card__year">2018-nay</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Tòa Nhà Vietcombank Q1</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 05 Công Trường Mê Linh, Quận 1</p>
+            <p class="project-card__desc">T9, 15, 26, 28 — Thiết kế &amp; thi công PCCC; Bảo trì từ 2018 đến nay.</p>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card__img-wrap">
+            <img src="images/projects/saigoncentre.jpg" alt="Dự án Saigon Centre" class="project-card__img" loading="lazy" />
+            <span class="project-card__badge">PCCC + Nghiệm thu</span>
+            <span class="project-card__year">2023</span>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Saigon Centre</h3>
+            <p class="project-card__address"><i class="fa-solid fa-location-dot"></i> 65 Lê Lợi, Quận 1, TP.HCM</p>
+            <p class="project-card__desc">T1, 2, 4, 5, 12, 28-29 — Thi công &amp; nghiệm thu PCCC.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--space-12);" data-aos="fade-up">
+        <a href="du-an.html" class="btn btn--secondary btn--lg" id="view-all-projects-btn">
+          <i class="fa-solid fa-grid-2"></i>
+          Xem Tất Cả 12 Dự Án
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════════ -->
+  <section class="cta-banner" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__text" data-aos="fade-right">
+          <p class="cta-banner__label">Liên Hệ Ngay Hôm Nay</p>
+          <h2 class="cta-banner__title" id="cta-heading">
+            Cần Tư Vấn Giải Pháp PCCC?<br>
+            <span class="cta-banner__number">
+              <i class="fa-solid fa-phone" style="font-size:0.8em;"></i>
+              079 8285 114
+            </span>
+          </h2>
+        </div>
+        <div class="cta-banner__actions" data-aos="fade-left">
+          <a href="tel:0798285114" class="btn btn--accent btn--lg" id="cta-call-btn">
+            <i class="fa-solid fa-phone-volume"></i>
+            Gọi Ngay
+          </a>
+          <a href="lien-he.html" class="btn btn--outline btn--lg" id="cta-contact-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Gửi Yêu Cầu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PARTNERS / CLIENTS
+  ═══════════════════════════════════════════ -->
+  <section class="partners-section" aria-labelledby="partners-heading">
+    <div class="container">
+      <header class="section-header" data-aos="fade-up">
+        <span class="section-label">Đối Tác &amp; Khách Hàng</span>
+        <h2 class="section-title" id="partners-heading">Tin Tưởng Bởi <span>Các Tập Đoàn Hàng Đầu</span></h2>
+      </header>
+      <div class="partners-grid" aria-label="Danh sách đối tác">
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="0">🏢 RMIT Vietnam</div>
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="80">🏬 Masan Group</div>
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="160">🏗️ Becamex</div>
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="240">⚙️ Bosch Vietnam</div>
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="320">🏢 Justco Vietnam</div>
+        <div class="partner-logo" data-aos="scale-in" data-aos-delay="400">🏦 Vietcombank</div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Col 1: Brand -->
+        <div class="footer__col">
+          <a href="index.html" class="footer__logo" aria-label="PCCC Phước Long – Trang chủ">
+            <img src="images/logo/logo.jpeg" alt="Logo PCCC Phước Long" class="footer__logo-img" width="56" height="56" loading="lazy" />
+            <div>
+              <div class="footer__logo-name">PCCC Phước Long</div>
+              <div class="footer__logo-sub">Fire Protection &amp; MEP</div>
+            </div>
+          </a>
+          <p class="footer__tagline">
+            Chuyên thiết kế, thi công hệ thống PCCC và cơ điện MEP uy tín tại TP. Hồ Chí Minh
+            từ năm 2016. Uy tín — Tiến độ — Chất lượng.
+          </p>
+          <div class="footer__cert">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            Đủ điều kiện kinh doanh dịch vụ PCCC
+          </div>
+        </div>
+
+        <!-- Col 2: Contact -->
+        <div class="footer__col">
+          <h3 class="footer__heading">Thông Tin Liên Hệ</h3>
+          <address style="font-style:normal;">
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+              <span><strong style="color:rgba(255,255,255,0.85);">Trụ sở:</strong><br>71 Út Trà Ôn, KDC Gia Hòa, P. Phước Long B, TP.HCM</span>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+              <span><strong style="color:rgba(255,255,255,0.85);">Văn phòng:</strong><br>114/190/11 Tô Ngọc Vân, P.15, Gò Vấp, TP.HCM</span>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+              <a href="tel:0798285114" style="color:inherit;">079 8285 114</a>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+              <a href="mailto:pccc@infophuoclong.com.vn" style="color:inherit;">pccc@infophuoclong.com.vn</a>
+            </div>
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon"><i class="fa-solid fa-hashtag" aria-hidden="true"></i></span>
+              <span>MST: 0313760584</span>
+            </div>
+          </address>
+        </div>
+
+        <!-- Col 3: Quick Links -->
+        <div class="footer__col">
+          <h3 class="footer__heading">Liên Kết Nhanh</h3>
+          <nav class="footer__links" aria-label="Liên kết chân trang">
+            <a href="index.html"      class="footer__link">Trang Chủ</a>
+            <a href="gioi-thieu.html" class="footer__link">Giới Thiệu</a>
+            <a href="dich-vu.html"    class="footer__link">Dịch Vụ</a>
+            <a href="du-an.html"      class="footer__link">Dự Án</a>
+            <a href="khu-vuc.html"    class="footer__link">Khu Vực HĐ</a>
+            <a href="lien-he.html"    class="footer__link">Liên Hệ</a>
+          </nav>
+        </div>
+
+        <!-- Col 4: Social + Map -->
+        <div class="footer__col">
+          <h3 class="footer__heading">Kết Nối Với Chúng Tôi</h3>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Facebook PCCC Phước Long">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="Zalo PCCC Phước Long">
+              <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="YouTube PCCC Phước Long">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn PCCC Phước Long">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="footer__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0794!2d106.7538!3d10.8255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ5JzMxLjgiTiAxMDbCsDQ1JzEzLjciRQ!5e0!3m2!1svi!2svn!4v1000000000"
+              width="100%"
+              height="140"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bản đồ PCCC Phước Long"
+              aria-label="Google Maps vị trí PCCC Phước Long">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__bottom-text">
+          &copy; 2025 Công Ty CP PCCC Phước Long. MST: 0313760584. Bảo lưu mọi quyền.
+        </p>
+        <nav class="footer__bottom-links" aria-label="Liên kết pháp lý">
+          <a href="#" class="footer__bottom-link">Chính sách bảo mật</a>
+          <a href="#" class="footer__bottom-link">Điều khoản sử dụng</a>
+          <a href="sitemap.xml" class="footer__bottom-link">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Floating Buttons ──────────────────── -->
+  <div class="float-buttons" aria-label="Liên hệ nhanh">
+    <a href="https://zalo.me/0798285114"
+       class="float-btn float-btn--zalo"
+       data-tooltip="Zalo"
+       target="_blank" rel="noopener"
+       id="float-zalo-btn"
+       aria-label="Liên hệ Zalo">
+      <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+    </a>
+    <a href="tel:0798285114"
+       class="float-btn float-btn--call"
+       data-tooltip="Gọi ngay"
+       id="float-call-btn"
+       aria-label="Gọi điện ngay 079 8285 114">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    </a>
+    <button class="float-btn float-btn--top"
+            data-tooltip="Lên đầu trang"
+            id="scroll-top-btn"
+            aria-label="Cuộn lên đầu trang">
+      <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

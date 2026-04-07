@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /private/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://pcccphuoclong.vn/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
