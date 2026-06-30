@@ -198,10 +198,37 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 }
 .pccc-product-terms a:hover { background:var(--pccc-secondary); color:var(--pccc-ink) !important; border-color:var(--pccc-secondary); }
 
-/* Breadcrumb trên page-header (nền xanh) */
-.pccc-breadcrumb { margin:0 0 .6rem; }
-.pccc-breadcrumb a { color:#fff; text-decoration:none; font-weight:600; }
+/* ---------- HERO trang danh mục (thay nền xanh phẳng) ---------- */
+.pccc-cat-hero {
+	position:relative; overflow:hidden;
+	background:
+		radial-gradient(640px 300px at 86% -25%, rgba(247,198,0,.18), transparent 60%),
+		radial-gradient(560px 340px at 104% 130%, rgba(232,49,42,.20), transparent 55%),
+		linear-gradient(115deg, #15264A 0%, #1E4FA3 58%, #2A62C4 100%);
+}
+/* icon lưới danh mục trang trí, mờ, góc phải */
+.pccc-cat-hero::after {
+	content:""; position:absolute; right:-24px; top:50%; transform:translateY(-50%);
+	width:300px; height:300px; pointer-events:none; opacity:.10;
+	background:no-repeat center/contain url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (max-width:781px){ .pccc-cat-hero::after { display:none; } }
+.pccc-cat-hero > * { position:relative; z-index:1; }
+.pccc-cat-hero__title { margin:.15rem 0 0; }
+.pccc-cat-hero__desc { max-width:680px; margin-top:.7rem; font-size:1.02rem; line-height:1.65; }
+/* eyebrow đổi sang vàng/gold cho hợp nền tối */
+.pccc-cat-hero__eyebrow { color:var(--pccc-secondary); }
+.pccc-cat-hero__eyebrow::before { background:var(--pccc-secondary); }
+
+/* ---------- Breadcrumb (nền tối) ---------- */
+.pccc-breadcrumb {
+	display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+	margin:0 0 1.1rem; font-size:.85rem; color:#cbd7ee;
+}
+.pccc-breadcrumb a { color:#e3ebfa; font-weight:600; text-decoration:none; transition:color .15s ease; }
 .pccc-breadcrumb a:hover { color:var(--pccc-secondary); }
+.pccc-bc-sep { color:rgba(255,255,255,.42); }
+.pccc-bc-current { color:#fff; font-weight:600; }
 
 /* ============================================================
    PLACEHOLDER ẢNH — sản phẩm/dự án chưa có ảnh

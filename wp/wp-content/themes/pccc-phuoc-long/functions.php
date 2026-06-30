@@ -45,11 +45,12 @@ function pccc_pl_assets() {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+	$extra_path = get_theme_file_path( 'assets/extra.css' );
 	wp_enqueue_style(
 		'pccc-pl-extra',
 		get_theme_file_uri( 'assets/extra.css' ),
 		array( 'pccc-pl-style' ),
-		wp_get_theme()->get( 'Version' )
+		file_exists( $extra_path ) ? filemtime( $extra_path ) : wp_get_theme()->get( 'Version' )
 	);
 
 	// Giỏ hàng / yêu cầu báo giá (client-side, lưu localStorage).
