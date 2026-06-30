@@ -161,6 +161,49 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 .wp-block-query .pccc-card .wp-block-post-excerpt .wp-block-post-excerpt__more-link { display:inline-block; margin-top:.4rem; }
 
 /* ============================================================
+   DANH MỤC SẢN PHẨM — bộ lọc dạng pill + nhãn danh mục
+   ============================================================ */
+/* Hàng lọc danh mục trên trang archive sản phẩm */
+.pccc-cat-filter__title { margin:0 0 .9rem; color:var(--pccc-muted); }
+.pccc-cat-filter .wp-block-categories {
+	list-style:none; margin:0; padding:0;
+	display:flex; flex-wrap:wrap; gap:.6rem;
+}
+.pccc-cat-filter .wp-block-categories li { margin:0; }
+.pccc-cat-filter .wp-block-categories a {
+	display:inline-flex; align-items:center; gap:.4rem;
+	padding:.5rem 1rem; border-radius:999px;
+	background:#fff; border:1px solid var(--pccc-border);
+	color:var(--pccc-ink); font-weight:600; font-size:.92rem; line-height:1;
+	text-decoration:none; transition:all .15s ease;
+}
+.pccc-cat-filter .wp-block-categories a:hover {
+	border-color:var(--pccc-primary); color:var(--pccc-primary);
+	background:var(--pccc-tint); transform:translateY(-1px);
+}
+/* số lượng sản phẩm sau tên danh mục */
+.pccc-cat-filter .wp-block-categories li > a + * ,
+.pccc-cat-filter .wp-block-categories .post-count {
+	color:var(--pccc-muted); font-weight:600; font-size:.82rem;
+}
+
+/* Nhãn danh mục (clickable) trên trang chi tiết sản phẩm */
+.pccc-product-terms { display:flex; flex-wrap:wrap; gap:.4rem; margin:0; }
+.pccc-product-terms a {
+	display:inline-flex; align-items:center;
+	padding:.28rem .8rem; border-radius:999px;
+	background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.28);
+	color:#fff !important; font-weight:700; font-size:.78rem;
+	letter-spacing:.02em; text-decoration:none; transition:background .15s ease;
+}
+.pccc-product-terms a:hover { background:var(--pccc-secondary); color:var(--pccc-ink) !important; border-color:var(--pccc-secondary); }
+
+/* Breadcrumb trên page-header (nền xanh) */
+.pccc-breadcrumb { margin:0 0 .6rem; }
+.pccc-breadcrumb a { color:#fff; text-decoration:none; font-weight:600; }
+.pccc-breadcrumb a:hover { color:var(--pccc-secondary); }
+
+/* ============================================================
    PLACEHOLDER ẢNH — sản phẩm/dự án chưa có ảnh
    ============================================================ */
 .pccc-img-placeholder {
@@ -228,13 +271,10 @@ a.pccc-img-placeholder:hover .pccc-img-placeholder__icon { opacity:.8; }
    PAGE / CONTENT — page header xanh phẳng (đơn giản)
    ============================================================ */
 .pccc-page-header { background: var(--pccc-primary); }
-/* chi tiết sản phẩm: ảnh thu nhỏ (chỉ 1 góc) cạnh tên sản phẩm */
-.pccc-product-head { gap:1rem; align-items:center; }
-.pccc-product-head .wp-block-post-featured-image { flex:0 0 auto; margin:0; width:96px; height:96px; }
-.pccc-product-head .wp-block-post-featured-image img { width:96px; height:96px; object-fit:cover; border-radius:10px; box-shadow:var(--pccc-shadow-sm); }
-.pccc-product-head .wp-block-post-title { margin:0; }
+/* chi tiết sản phẩm: ảnh nằm trong nội dung, tối đa 200px */
+.pccc-product-image { margin:0 0 1.6rem; }
+.pccc-product-image img { width:auto; max-width:200px; height:auto; border-radius:12px; box-shadow:var(--pccc-shadow-sm); }
 @media (max-width: 781px) {
-	.pccc-product-head { flex-wrap:wrap; }
 	.pccc-product-head .wp-block-post-title { font-size:1.6rem !important; }
 }
 .entry-content table { width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:var(--pccc-shadow-sm); }

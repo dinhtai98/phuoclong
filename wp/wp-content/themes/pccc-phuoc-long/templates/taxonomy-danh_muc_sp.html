@@ -1,25 +1,19 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"className":"pccc-page-header","style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group pccc-page-header" style="padding-top:3rem;padding-bottom:3rem">
-<!-- wp:heading {"level":1,"textColor":"white","style":{"typography":{"fontSize":"2.4rem"}}} -->
-<h1 class="wp-block-heading has-white-color has-text-color" style="font-size:2.4rem">Sản phẩm &amp; Thiết bị PCCC</h1>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"#cdd7ee"}}} -->
-<p class="has-text-color" style="color:#cdd7ee">Thiết bị, vật tư phòng cháy chữa cháy chính hãng do Phước Long cung cấp.</p>
+<!-- wp:paragraph {"className":"pccc-breadcrumb","style":{"typography":{"fontSize":"0.85rem"},"color":{"text":"#cdd7ee"}}} -->
+<p class="pccc-breadcrumb has-text-color" style="color:#cdd7ee;font-size:0.85rem"><a href="/">Trang chủ</a> &nbsp;/&nbsp; <a href="/san-pham/">Sản phẩm</a> &nbsp;/&nbsp; Danh mục</p>
 <!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"pccc-eyebrow","style":{"color":{"text":"#F7C600"}}} -->
+<p class="pccc-eyebrow has-text-color" style="color:#F7C600">Danh mục sản phẩm</p>
+<!-- /wp:paragraph -->
+<!-- wp:query-title {"type":"archive","showPrefix":false,"level":1,"textColor":"white","style":{"typography":{"fontSize":"2.4rem"}}} /-->
+<!-- wp:term-description {"style":{"color":{"text":"#cdd7ee"}}} /-->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"3rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
 <main class="wp-block-group" style="padding-top:3rem;padding-bottom:4rem">
-<!-- wp:group {"className":"pccc-cat-filter","style":{"spacing":{"margin":{"bottom":"2rem"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group pccc-cat-filter" style="margin-bottom:2rem">
-<!-- wp:heading {"level":2,"className":"pccc-cat-filter__title","style":{"typography":{"fontSize":"1rem","textTransform":"uppercase","letterSpacing":"0.08em"}},"textColor":"muted"} -->
-<h2 class="wp-block-heading pccc-cat-filter__title has-muted-color has-text-color" style="font-size:1rem;letter-spacing:0.08em;text-transform:uppercase">Danh mục sản phẩm</h2>
-<!-- /wp:heading -->
-<!-- wp:categories {"taxonomy":"danh_muc_sp","showHierarchy":false,"showPostCounts":true} /-->
-</div>
-<!-- /wp:group -->
-<!-- wp:query {"queryId":2,"query":{"perPage":24,"postType":"sanpham","order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
+<!-- wp:query {"queryId":3,"query":{"perPage":24,"inherit":true,"order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
 <!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
 <!-- wp:group {"className":"pccc-card","layout":{"type":"default"}} -->
@@ -40,7 +34,7 @@
 <!-- wp:query-pagination-next {"label":"Trang sau"} /-->
 <!-- /wp:query-pagination -->
 <!-- wp:query-no-results -->
-<!-- wp:paragraph --><p>Chưa có nội dung. Vui lòng thêm trong trang quản trị.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Danh mục này chưa có sản phẩm. <a href="/san-pham/">Xem tất cả sản phẩm →</a></p><!-- /wp:paragraph -->
 <!-- /wp:query-no-results -->
 </div>
 <!-- /wp:query -->
