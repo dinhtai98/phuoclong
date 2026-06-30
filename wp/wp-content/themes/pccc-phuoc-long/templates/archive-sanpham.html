@@ -1,0 +1,36 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"className":"pccc-page-header","style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group pccc-page-header" style="padding-top:3rem;padding-bottom:3rem">
+<!-- wp:heading {"level":1,"textColor":"white","style":{"typography":{"fontSize":"2.4rem"}}} -->
+<h1 class="wp-block-heading has-white-color has-text-color" style="font-size:2.4rem">Sản phẩm &amp; Thiết bị PCCC</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"color":{"text":"#cdd7ee"}}} -->
+<p class="has-text-color" style="color:#cdd7ee">Thiết bị, vật tư phòng cháy chữa cháy chính hãng do Phước Long cung cấp.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"3rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:3rem;padding-bottom:4rem">
+<!-- wp:query {"queryId":2,"query":{"perPage":24,"postType":"sanpham","order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
+<!-- wp:group {"className":"pccc-card","layout":{"type":"default"}} -->
+<div class="wp-block-group pccc-card">
+<!-- wp:post-featured-image {"isLink":true,"height":"200px"} /-->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0.6rem","bottom":"1rem","left":"1.1rem","right":"1.1rem"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="padding-top:0.6rem;padding-bottom:1rem;padding-left:1.1rem;padding-right:1.1rem">
+<!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"1.05rem"}}} /-->
+<!-- wp:post-excerpt {"moreText":"Xem chi tiết →","excerptLength":22,"style":{"typography":{"fontSize":"0.9rem"}}} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph --><p>Chưa có nội dung. Vui lòng thêm trong trang quản trị.</p><!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
