@@ -161,6 +161,44 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 .wp-block-query .pccc-card .wp-block-post-excerpt .wp-block-post-excerpt__more-link { display:inline-block; margin-top:.4rem; }
 
 /* ============================================================
+   PLACEHOLDER ẢNH — sản phẩm/dự án chưa có ảnh
+   ============================================================ */
+.pccc-img-placeholder {
+	display:flex; align-items:center; justify-content:center;
+	width:100%; min-height:200px;
+	background:linear-gradient(135deg, var(--pccc-tint), #e9eff8);
+	border-bottom:1px solid var(--pccc-border);
+	color:var(--pccc-primary); text-decoration:none;
+}
+.pccc-img-placeholder__icon { width:56px; height:56px; opacity:.55; }
+.pccc-img-placeholder__icon svg { width:100%; height:100%; }
+a.pccc-img-placeholder:hover .pccc-img-placeholder__icon { opacity:.8; }
+
+/* ============================================================
+   PHÂN TRANG (query pagination)
+   ============================================================ */
+.pccc-pagination { margin-top:2.5rem; gap:.4rem; flex-wrap:wrap; align-items:center; }
+.pccc-pagination .wp-block-query-pagination-numbers { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; }
+.pccc-pagination a,
+.pccc-pagination .page-numbers {
+	display:inline-flex; align-items:center; justify-content:center;
+	min-width:42px; height:42px; padding:0 .75rem; box-sizing:border-box;
+	border:1px solid var(--pccc-border); border-radius:10px;
+	background:#fff; color:var(--pccc-ink); font-weight:600; line-height:1;
+	text-decoration:none; transition:all .15s ease;
+}
+.pccc-pagination a:hover,
+.pccc-pagination .page-numbers:hover { border-color:var(--pccc-primary); color:var(--pccc-primary); }
+.pccc-pagination .page-numbers.current {
+	background:var(--pccc-primary); border-color:var(--pccc-primary); color:#fff;
+}
+.pccc-pagination .page-numbers.dots {
+	border:none; background:transparent; min-width:auto; color:var(--pccc-muted);
+}
+.pccc-pagination .wp-block-query-pagination-previous,
+.pccc-pagination .wp-block-query-pagination-next { font-weight:600; }
+
+/* ============================================================
    CTA BAND — đỏ phẳng, thân thiện
    ============================================================ */
 .pccc-cta-band { background: var(--pccc-accent); }
@@ -190,6 +228,15 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
    PAGE / CONTENT — page header xanh phẳng (đơn giản)
    ============================================================ */
 .pccc-page-header { background: var(--pccc-primary); }
+/* chi tiết sản phẩm: ảnh thu nhỏ (chỉ 1 góc) cạnh tên sản phẩm */
+.pccc-product-head { gap:1rem; align-items:center; }
+.pccc-product-head .wp-block-post-featured-image { flex:0 0 auto; margin:0; width:96px; height:96px; }
+.pccc-product-head .wp-block-post-featured-image img { width:96px; height:96px; object-fit:cover; border-radius:10px; box-shadow:var(--pccc-shadow-sm); }
+.pccc-product-head .wp-block-post-title { margin:0; }
+@media (max-width: 781px) {
+	.pccc-product-head { flex-wrap:wrap; }
+	.pccc-product-head .wp-block-post-title { font-size:1.6rem !important; }
+}
 .entry-content table { width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:var(--pccc-shadow-sm); }
 .entry-content table th, .entry-content table td { border:1px solid var(--pccc-border); padding:.7rem .9rem; text-align:left; font-size:.97rem; }
 .entry-content table th { background:var(--pccc-primary); color:#fff; }

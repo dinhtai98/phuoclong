@@ -107,6 +107,51 @@ function pccc_pl_add_cart_button( $content, $block ) {
 add_filter( 'render_block', 'pccc_pl_add_cart_button', 10, 2 );
 
 /**
+ * Ảnh đại diện mặc định — sản phẩm/dự án chưa có ảnh sẽ hiện placeholder
+ * với biểu tượng web (icon ảnh) thay vì để trống.
+ */
+function pccc_pl_featured_image_placeholder( $content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/post-featured-image' ) {
+		return $content;
+	}
+	// Đã có ảnh thật -> giữ nguyên.
+	if ( trim( (string) $content ) !== '' ) {
+		return $content;
+	}
+
+	$id = get_the_ID();
+	if ( ! $id ) {
+		return $content;
+	}
+
+	$is_link = ! empty( $block['attrs']['isLink'] );
+	$height  = $block['attrs']['height'] ?? '';
+	$style   = $height ? ' style="height:' . esc_attr( $height ) . '"' : '';
+
+	// Icon ảnh (web icon) dạng SVG nội tuyến.
+	$icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>';
+
+	$inner = '<span class="pccc-img-placeholder__icon">' . $icon . '</span>';
+
+	if ( $is_link ) {
+		return sprintf(
+			'<a href="%s" class="pccc-img-placeholder wp-block-post-featured-image"%s aria-label="%s">%s</a>',
+			esc_url( get_permalink( $id ) ),
+			$style,
+			esc_attr( get_the_title( $id ) ),
+			$inner
+		);
+	}
+
+	return sprintf(
+		'<div class="pccc-img-placeholder wp-block-post-featured-image"%s>%s</div>',
+		$style,
+		$inner
+	);
+}
+add_filter( 'render_block', 'pccc_pl_featured_image_placeholder', 10, 2 );
+
+/**
  * Shortcode [pccc_cart] — khung trang giỏ hàng (JS sẽ dựng nội dung).
  */
 function pccc_pl_cart_shortcode() {
