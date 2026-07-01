@@ -38,6 +38,8 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 .pccc-topbar { font-size: .84rem; }
 .pccc-topbar a { color: inherit; text-decoration: none; }
 .pccc-topbar a:hover { color: var(--pccc-secondary); }
+.pccc-topbar-brand { font-size: .98rem; margin: 0; }
+.pccc-topbar-contact p { margin: 0; opacity: .92; }
 
 /* ---------- Header TRẮNG ---------- */
 .pccc-header { position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 var(--pccc-border), 0 6px 18px rgba(21,38,74,.06); }
@@ -130,6 +132,29 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 	background:#EAF1FC; color:var(--pccc-primary); margin:0 0 .2rem;
 }
 .pccc-icon svg { width:28px; height:28px; }
+.pccc-icon.red { background:#FDECEB; color:var(--pccc-accent); }
+
+/* ---------- Lời giới thiệu — ảnh ---------- */
+.pccc-about-img img {
+	width:100%; border-radius: var(--pccc-radius); object-fit:cover; aspect-ratio:4/3;
+	box-shadow: var(--pccc-shadow);
+}
+
+/* ---------- Hình ảnh công ty (gallery) ---------- */
+.pccc-gallery.wp-block-gallery { gap: 1.1rem; }
+.pccc-gallery figure.wp-block-image { border-radius: var(--pccc-radius); overflow:hidden; box-shadow: var(--pccc-shadow-sm); }
+.pccc-gallery figure.wp-block-image img { width:100%; aspect-ratio:4/3; object-fit:cover; transition: transform .35s ease; }
+.pccc-gallery figure.wp-block-image:hover img { transform: scale(1.06); }
+
+/* ---------- Banner (lưới 3 cột: giới thiệu / hình ảnh / tại sao–sứ mệnh) ---------- */
+.pccc-banner .pccc-card { background:#fff; height:auto; }
+.pccc-banner .pccc-icon { width:46px; height:46px; border-radius:12px; margin-bottom:.55rem; }
+.pccc-banner .pccc-icon svg { width:23px; height:23px; }
+.pccc-banner .pccc-card h3 { margin:0 0 .4rem; }
+.pccc-banner .pccc-card ul.wp-block-list { margin:0; padding-left:1.15rem; }
+.pccc-banner .pccc-card ul.wp-block-list li { margin-bottom:.4rem; }
+.pccc-banner-img img { width:100%; border-radius:14px; object-fit:cover; aspect-ratio:16/10; box-shadow: var(--pccc-shadow-sm); }
+@media (min-width:782px){ .pccc-banner-grid.wp-block-columns { align-items:flex-start; } }
 
 /* ============================================================
    GRID DỰ ÁN / SẢN PHẨM (Query Loop cards)
