@@ -53,6 +53,16 @@ function pccc_pl_assets() {
 		file_exists( $extra_path ) ? filemtime( $extra_path ) : wp_get_theme()->get( 'Version' )
 	);
 
+	// Mega menu danh mục sản phẩm (hover desktop + drawer mobile).
+	$menu_js = get_theme_file_path( 'assets/menu.js' );
+	wp_enqueue_script(
+		'pccc-pl-menu',
+		get_theme_file_uri( 'assets/menu.js' ),
+		array(),
+		file_exists( $menu_js ) ? filemtime( $menu_js ) : wp_get_theme()->get( 'Version' ),
+		true
+	);
+
 	// Giỏ hàng / yêu cầu báo giá (client-side, lưu localStorage).
 	wp_enqueue_script(
 		'pccc-pl-cart',
@@ -151,6 +161,136 @@ function pccc_pl_featured_image_placeholder( $content, $block ) {
 	);
 }
 add_filter( 'render_block', 'pccc_pl_featured_image_placeholder', 10, 2 );
+
+/**
+ * Đánh dấu mục menu của trang hiện tại (current-menu-item).
+ * Menu dùng link kiểu "custom" (không có id) nên core không tự gắn class này.
+ */
+function pccc_pl_nav_current_item( $content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/navigation-link' ) {
+		return $content;
+	}
+	$url = $block['attrs']['url'] ?? '';
+	if ( '' === $url ) {
+		return $content;
+	}
+
+	$link_path = rtrim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
+	$cur_path  = rtrim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH ), '/' );
+
+	// Trang chủ so khớp tuyệt đối; các mục khác khớp cả trang con (vd /san-pham/binh-abc).
+	$active = ( $link_path === $cur_path )
+		|| ( '' !== $link_path && str_starts_with( $cur_path . '/', $link_path . '/' ) );
+
+	// Bài viết / chuyên mục tin tức không nằm dưới /tin-tuc/ nhưng vẫn thuộc mục Tin tức.
+	if ( ! $active && '/tin-tuc' === $link_path && ( is_home() || is_singular( 'post' ) || is_category() || is_tag() ) ) {
+		$active = true;
+	}
+
+	if ( ! $active ) {
+		return $content;
+	}
+
+	$processor = new WP_HTML_Tag_Processor( $content );
+	if ( $processor->next_tag( 'li' ) ) {
+		$processor->add_class( 'current-menu-item' );
+		$content = $processor->get_updated_html();
+	}
+	return $content;
+}
+add_filter( 'render_block', 'pccc_pl_nav_current_item', 10, 2 );
+
+/**
+ * Mega menu danh mục sản phẩm — dựng cây danh mục (danh_muc_sp) thành panel:
+ * desktop hover hiện panel nhiều cột; mobile là drawer cấp 2 (menu.js điều khiển).
+ */
+function pccc_pl_mega_menu_html() {
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'danh_muc_sp',
+			'hide_empty' => true,
+		)
+	);
+	if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		return '';
+	}
+
+	$by_parent = array();
+	foreach ( $terms as $t ) {
+		$by_parent[ $t->parent ][] = $t;
+	}
+	if ( empty( $by_parent[0] ) ) {
+		return '';
+	}
+
+	$item = static function ( $term ) {
+		return sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( get_term_link( $term ) ),
+			esc_html( wp_specialchars_decode( $term->name ) )
+		);
+	};
+
+	$render_children = static function ( $parent_id ) use ( &$render_children, $by_parent, $item ) {
+		if ( empty( $by_parent[ $parent_id ] ) ) {
+			return '';
+		}
+		$out = '<ul class="pccc-mega__list">';
+		foreach ( $by_parent[ $parent_id ] as $t ) {
+			$out .= '<li>' . $item( $t ) . $render_children( $t->term_id ) . '</li>';
+		}
+		return $out . '</ul>';
+	};
+
+	$cols = '';
+	foreach ( $by_parent[0] as $t ) {
+		$cols .= '<div class="pccc-mega__col">'
+			. '<a class="pccc-mega__head" href="' . esc_url( get_term_link( $t ) ) . '">'
+			. esc_html( wp_specialchars_decode( $t->name ) ) . '</a>'
+			. $render_children( $t->term_id )
+			. '</div>';
+	}
+
+	return '<div class="pccc-mega" aria-label="Danh mục sản phẩm">'
+		. '<div class="pccc-mega__bar">'
+		. '<button type="button" class="pccc-mega__back">‹ Quay lại</button>'
+		. '<a class="pccc-mega__all" href="' . esc_url( home_url( '/san-pham/' ) ) . '">Tất cả sản phẩm <span aria-hidden="true">→</span></a>'
+		. '</div>'
+		. '<div class="pccc-mega__grid">' . $cols . '</div>'
+		. '</div>';
+}
+
+/**
+ * Gắn mega menu vào mục "Sản phẩm" của navigation.
+ */
+function pccc_pl_nav_product_mega( $content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/navigation-link' ) {
+		return $content;
+	}
+	$path = rtrim( (string) wp_parse_url( $block['attrs']['url'] ?? '', PHP_URL_PATH ), '/' );
+	if ( '/san-pham' !== $path ) {
+		return $content;
+	}
+
+	$panel = pccc_pl_mega_menu_html();
+	if ( '' === $panel ) {
+		return $content;
+	}
+
+	$processor = new WP_HTML_Tag_Processor( $content );
+	if ( ! $processor->next_tag( 'li' ) ) {
+		return $content;
+	}
+	$processor->add_class( 'pccc-has-mega' );
+	$content = $processor->get_updated_html();
+
+	$pos = strrpos( $content, '</li>' );
+	if ( false === $pos ) {
+		return $content;
+	}
+	return substr( $content, 0, $pos ) . $panel . substr( $content, $pos );
+}
+add_filter( 'render_block', 'pccc_pl_nav_product_mega', 10, 2 );
 
 /**
  * Shortcode [pccc_cart] — khung trang giỏ hàng (JS sẽ dựng nội dung).

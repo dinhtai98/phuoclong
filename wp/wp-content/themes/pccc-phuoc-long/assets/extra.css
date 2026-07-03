@@ -352,6 +352,170 @@ a:focus-visible, button:focus-visible, .wp-block-button__link:focus-visible { ou
 }
 
 /* ============================================================
+   MEGA MENU DANH MỤC SẢN PHẨM
+   (desktop: hover mục "Sản phẩm" | mobile: drawer 2 cấp)
+   ============================================================ */
+/* Kiểu chung cho panel danh mục */
+.pccc-header .pccc-mega a { text-decoration:none; }
+.pccc-header .pccc-mega__all {
+	display:inline-flex; align-items:center; gap:.4rem;
+	font-weight:800; font-size:.9rem !important;
+	text-transform:uppercase; letter-spacing:.04em;
+	color:var(--pccc-accent) !important;
+}
+.pccc-header .pccc-mega__all:hover { color:var(--pccc-primary-dark) !important; }
+.pccc-header .pccc-mega__head {
+	display:block; padding:0 0 .55rem; margin:0 0 .35rem;
+	font-weight:800; font-size:.92rem !important;
+	text-transform:uppercase; letter-spacing:.02em;
+	color:var(--pccc-ink) !important;
+	border-bottom:2px solid var(--pccc-accent);
+}
+.pccc-header .pccc-mega__head:hover { color:var(--pccc-accent) !important; }
+.pccc-header .pccc-mega__list { list-style:none; margin:0; padding:0; }
+.pccc-header .pccc-mega__list li { margin:0; }
+.pccc-header .pccc-mega__list a {
+	display:flex; align-items:baseline; gap:.55rem;
+	padding:.55rem 0; font-size:.88rem !important; font-weight:600;
+	text-transform:uppercase; color:var(--pccc-ink) !important;
+	border-bottom:1px solid var(--pccc-border); line-height:1.35;
+}
+.pccc-header .pccc-mega__list a::before {
+	content:""; flex:0 0 auto; width:7px; height:7px;
+	background:var(--pccc-accent); transform:translateY(-1px);
+}
+/* danh mục con cấp 2: thụt vào, bullet tròn nhỏ */
+.pccc-header .pccc-mega__list .pccc-mega__list { padding-left:1.1rem; }
+.pccc-header .pccc-mega__list .pccc-mega__list a { font-weight:500; }
+.pccc-header .pccc-mega__list .pccc-mega__list a::before { width:5px; height:5px; border-radius:50%; }
+.pccc-header .pccc-mega__list a:hover { color:var(--pccc-accent) !important; }
+
+/* -------- Desktop (≥600px – navigation chưa thu gọn): hover hiện panel -------- */
+@media (min-width:600px) {
+	/* core đặt position:relative cho nav + responsive-container:
+	   trả về static để panel neo theo .pccc-header (full-width) */
+	.pccc-header .wp-block-navigation { position:static; }
+	.pccc-header .wp-block-navigation__responsive-container:not(.is-menu-open) { position:static; }
+	.pccc-header .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__responsive-dialog { position:static; }
+	.pccc-header li.pccc-has-mega { position:static; }
+	.pccc-header li.pccc-has-mega > a::after {
+		content:"▾"; display:inline-block; margin-left:.3rem;
+		font-size:.72em; transform:translateY(-1px);
+		transition:transform .18s ease;
+	}
+	.pccc-header li.pccc-has-mega:hover > a::after { transform:translateY(1px); }
+	.pccc-header .pccc-mega {
+		position:absolute; left:0; right:0; top:100%; z-index:99;
+		background:#fff; border-top:3px solid var(--pccc-accent);
+		box-shadow:0 30px 60px rgba(21,38,74,.18);
+		padding:1.4rem clamp(1.2rem,4vw,3rem) 2rem;
+		max-height:calc(100vh - 150px); overflow:auto;
+		opacity:0; visibility:hidden; transform:translateY(10px);
+		transition:opacity .18s ease, transform .18s ease, visibility 0s linear .22s;
+	}
+	.pccc-header li.pccc-has-mega:hover .pccc-mega,
+	.pccc-header li.pccc-has-mega:focus-within .pccc-mega {
+		opacity:1; visibility:visible; transform:none; transition-delay:0s;
+	}
+	.pccc-header .pccc-mega__back { display:none; }
+	.pccc-header .pccc-mega__bar {
+		max-width:1240px; margin:0 auto .9rem;
+		display:flex; justify-content:flex-end;
+	}
+	.pccc-header .pccc-mega__grid {
+		max-width:1240px; margin:0 auto;
+		display:grid; grid-template-columns:repeat(4,1fr);
+		gap:1.6rem 2.2rem; align-items:start;
+	}
+}
+@media (min-width:600px) and (max-width:1023px) {
+	.pccc-header .pccc-mega__grid { grid-template-columns:repeat(2,1fr); }
+}
+
+/* -------- Mobile (<600px): sửa drawer + drawer danh mục cấp 2 -------- */
+@media (max-width:599px) {
+	/* nút hamburger */
+	.pccc-header .wp-block-navigation__responsive-container-open {
+		display:flex; align-items:center; justify-content:center;
+		width:44px; height:44px; border-radius:10px;
+		border:1px solid var(--pccc-border); background:var(--pccc-tint);
+		color:var(--pccc-ink);
+	}
+
+	/* lớp phủ tối + drawer trắng bên phải
+	   (!important: thắng rule core specificity cao; animation:none:
+	   bỏ transform của core để position:fixed của drawer cấp 2 hoạt động) */
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open {
+		background:rgba(21,38,74,.5) !important;
+		padding:0 !important;
+		animation:none;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-close {
+		width:min(84vw,340px); height:100%;
+		margin:0; align-self:flex-end; max-width:none;
+		background:#fff; box-shadow:-16px 0 40px rgba(21,38,74,.25);
+		animation:pccc-drawer-in .25s ease;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog {
+		height:100%; display:flex; flex-direction:column;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+		position:static; align-self:flex-end; flex:0 0 auto;
+		width:40px; height:40px; margin:.65rem .8rem 0;
+		display:flex; align-items:center; justify-content:center;
+		border:0; border-radius:10px; background:var(--pccc-tint); color:var(--pccc-ink);
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+		flex:1 1 auto; overflow-y:auto; display:block;
+		padding:.4rem 1.15rem 2rem !important;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+		display:block; width:100%; gap:0;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+		display:block; width:100%; margin:0;
+	}
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item > a {
+		display:flex; align-items:center; justify-content:space-between;
+		padding:.95rem .15rem !important; font-size:1rem !important;
+		border-bottom:1px solid var(--pccc-border);
+	}
+	/* mục "Sản phẩm": mũi tên báo còn cấp trong */
+	.pccc-header .wp-block-navigation__responsive-container.is-menu-open li.pccc-has-mega > a::after {
+		content:"›"; font-size:1.25rem; line-height:1; color:var(--pccc-muted);
+	}
+
+	/* drawer danh mục (cấp 2) trượt đè lên drawer chính */
+	.pccc-header .pccc-mega {
+		position:fixed; top:0; right:0; bottom:0; width:min(84vw,340px);
+		box-sizing:border-box;
+		background:#fff; z-index:100010; overflow-y:auto;
+		padding:0 1.15rem 2rem;
+		transform:translateX(110%); transition:transform .25s ease;
+		box-shadow:-16px 0 40px rgba(21,38,74,.25);
+	}
+	.pccc-header li.pccc-has-mega.is-sub-open .pccc-mega { transform:translateX(0); }
+	.pccc-header .pccc-mega__bar {
+		position:sticky; top:0; z-index:1; background:#fff;
+		display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+		padding:.75rem 0; margin-bottom:.3rem;
+		border-bottom:1px solid var(--pccc-border);
+	}
+	.pccc-header .pccc-mega__back {
+		display:inline-flex; align-items:center; gap:.3rem;
+		border:0; border-radius:10px; padding:.5rem .8rem;
+		background:var(--pccc-tint); color:var(--pccc-ink);
+		font-family:inherit; font-weight:700; font-size:.88rem; cursor:pointer;
+	}
+	.pccc-header .pccc-mega__grid { display:block; }
+	.pccc-header .pccc-mega__col { margin:0 0 1.3rem; }
+	.pccc-header .pccc-mega__head { padding-top:.2rem; }
+}
+@keyframes pccc-drawer-in {
+	from { transform:translateX(60px); opacity:.4; }
+}
+
+/* ============================================================
    GIỎ HÀNG / YÊU CẦU BÁO GIÁ  (giữ nguyên chức năng)
    ============================================================ */
 
