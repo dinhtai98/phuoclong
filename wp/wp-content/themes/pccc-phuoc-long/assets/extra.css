@@ -1,436 +1,65 @@
-/* ============================================================
-   PCCC Phước Long — Design system (v3: Sáng & thân thiện)
-   Biến màu sinh từ theme.json: --wp--preset--color--*
-   ============================================================ */
+<!-- wp:group {"tagName":"header","className":"pccc-header","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<header class="wp-block-group pccc-header" style="padding-top:0;padding-bottom:0">
 
-:root {
-	--pccc-shadow-sm: 0 1px 3px rgba(21, 38, 74, 0.05), 0 4px 14px rgba(21, 38, 74, 0.05);
-	--pccc-shadow: 0 8px 30px rgba(21, 38, 74, 0.09);
-	--pccc-shadow-lg: 0 24px 50px rgba(21, 38, 74, 0.14);
-	--pccc-radius: 16px;
-	--pccc-primary: #1E4FA3;
-	--pccc-primary-dark: #163C7C;
-	--pccc-secondary: #F7C600;
-	--pccc-accent: #E8312A;
-	--pccc-ink: #15264A;
-	--pccc-muted: #5B6B86;
-	--pccc-border: #E7ECF6;
-	--pccc-tint: #F2F6FC;
-}
+	<!-- wp:group {"className":"pccc-topbar","style":{"spacing":{"padding":{"top":"0.5rem","bottom":"0.5rem"}}},"backgroundColor":"primary-dark","textColor":"white","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group pccc-topbar has-white-color has-primary-dark-background-color has-text-color has-background" style="padding-top:0.5rem;padding-bottom:0.5rem">
+		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group">
+			<!-- wp:paragraph {"className":"pccc-topbar-brand","style":{"typography":{"fontWeight":"800","letterSpacing":"0.02em","textTransform":"uppercase"}}} -->
+			<p class="pccc-topbar-brand" style="font-weight:800;letter-spacing:0.02em;text-transform:uppercase">🛡️ CÔNG TY CP PCCC PHƯỚC LONG</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:group {"className":"pccc-topbar-contact","style":{"spacing":{"blockGap":"1.4rem"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+			<div class="wp-block-group pccc-topbar-contact">
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.82rem"}}} -->
+				<p style="font-size:0.82rem">📍 71 Út Trà Ôn, KDC Gia Hòa, P. Phước Long B, TP.HCM</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.82rem"}}} -->
+				<p style="font-size:0.82rem">✉️ <a href="mailto:pccc@infophuoclong.com.vn">pccc@infophuoclong.com.vn</a></p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.82rem","fontWeight":"700"}}} -->
+				<p style="font-size:0.82rem;font-weight:700">☎ <a href="tel:0798285114">079 8285 114</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
 
-body { -webkit-font-smoothing: antialiased; color: var(--pccc-ink); }
-.entry-content { font-size: 1.05rem; line-height: 1.75; }
-h1, h2, h3, h4 { letter-spacing: -0.01em; }
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"0.7rem","bottom":"0.7rem"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group has-white-background-color has-background" style="padding-top:0.7rem;padding-bottom:0.7rem">
+		<!-- wp:group {"style":{"spacing":{"blockGap":"1rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group">
 
-/* ---------- Eyebrow (nhãn mục) ---------- */
-.pccc-eyebrow {
-	display: inline-flex; align-items: center; gap: .5rem;
-	letter-spacing: .12em; text-transform: uppercase;
-	font-weight: 700; font-size: .78rem;
-	color: var(--pccc-accent);
-}
-.pccc-eyebrow::before {
-	content: ""; width: 22px; height: 2px; background: var(--pccc-accent); display: inline-block; border-radius: 2px;
-}
-.has-text-align-center.pccc-eyebrow { justify-content: center; }
+			<!-- wp:group {"style":{"spacing":{"blockGap":"0.8rem"}},"layout":{"type":"flex","verticalAlignment":"center"}} -->
+			<div class="wp-block-group">
+				<!-- wp:site-logo {"width":64,"shouldSyncIcon":false} /-->
+				<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group">
+					<!-- wp:site-title {"level":0,"style":{"typography":{"fontSize":"1.7rem","textTransform":"uppercase","fontWeight":"800","lineHeight":"1.05"}}} /-->
+					<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.76rem","letterSpacing":"0.04em"},"color":{"text":"#5B6B86"}}} -->
+					<p class="has-text-color" style="color:#5B6B86;font-size:0.76rem;letter-spacing:0.04em">PHUOC LONG FIRE PROTECTION JSC</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
 
-/* ---------- Top bar (mảnh, xanh) ---------- */
-.pccc-topbar { font-size: .84rem; }
-.pccc-topbar a { color: inherit; text-decoration: none; }
-.pccc-topbar a:hover { color: var(--pccc-secondary); }
-.pccc-topbar-brand { font-size: .98rem; margin: 0; }
-.pccc-topbar-contact p { margin: 0; opacity: .92; }
+			<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+			<div class="wp-block-group">
+				<!-- wp:navigation {"ref":41,"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"1.4rem"}}} /-->
+				<!-- wp:buttons {"className":"pccc-cta-btn"} -->
+				<div class="wp-block-buttons pccc-cta-btn"><!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
+				<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="/lien-he/">Yêu cầu tư vấn</a></div>
+				<!-- /wp:button --></div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
 
-/* ---------- Header TRẮNG ---------- */
-.pccc-header { position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 var(--pccc-border), 0 6px 18px rgba(21,38,74,.06); }
-.pccc-header .wp-block-navigation a {
-	color: var(--pccc-ink) !important; font-weight: 600; font-size: .98rem;
-}
-.pccc-header .wp-block-navigation a:hover,
-.pccc-header .wp-block-navigation .current-menu-item a { color: var(--pccc-accent) !important; }
-.pccc-cta-btn .wp-block-button__link { box-shadow: 0 6px 16px rgba(232,49,42,.28); }
-/* Logo: bo nhẹ */
-.pccc-header .custom-logo, .pccc-header .wp-block-site-logo img { border-radius: 8px; }
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
 
-/* ---------- Buttons (mềm, thân thiện) ---------- */
-.wp-block-button__link {
-	border-radius: 12px !important; font-weight: 700;
-	transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
-	padding: .85rem 1.6rem;
-}
-.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover {
-	transform: translateY(-1px); box-shadow: 0 10px 22px rgba(21,38,74,.16);
-}
-.is-style-outline .wp-block-button__link { border-width: 2px !important; background: transparent !important; }
-
-/* ============================================================
-   HERO — sáng, thoáng
-   ============================================================ */
-.pccc-hero {
-	position: relative; overflow: hidden;
-	background:
-		radial-gradient(900px 420px at 90% -10%, rgba(247,198,0,.10), transparent 60%),
-		radial-gradient(700px 360px at -5% 110%, rgba(30,79,163,.08), transparent 60%),
-		var(--pccc-tint);
-}
-.pccc-hero h1 { color: var(--pccc-ink); }
-.pccc-hero-eyebrow {
-	display:inline-flex; align-items:center; gap:.5rem;
-	letter-spacing:.12em; text-transform:uppercase; font-weight:700; font-size:.78rem; color:var(--pccc-accent);
-}
-.pccc-hero-eyebrow::before { content:""; width:22px; height:2px; background:var(--pccc-accent); display:inline-block; border-radius:2px; }
-
-/* nút viền (số điện thoại) — đảm bảo tương phản rõ */
-.pccc-hero .is-style-outline .wp-block-button__link {
-	color: var(--pccc-accent) !important;
-	border-color: var(--pccc-primary) !important;
-	font-weight: 800;
-}
-.pccc-hero .is-style-outline .wp-block-button__link:hover {
-	background: var(--pccc-accent) !important;
-	color: #fff !important;
-}
-
-/* hàng "tin cậy" với dấu tick */
-.pccc-trust { display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; }
-.pccc-trust span { display:inline-flex; align-items:center; gap:.5rem; font-size:.95rem; font-weight:600; color:var(--pccc-ink); }
-.pccc-trust svg { width:20px; height:20px; color:#1a8a4a; flex:0 0 auto; }
-
-/* thẻ minh hoạ bên phải — TRẮNG, bóng mềm */
-.pccc-hero-visual { background:#fff; border:1px solid var(--pccc-border); border-radius:20px; padding:1.3rem; box-shadow:var(--pccc-shadow); }
-.pccc-hero-visual .pccc-mini { background:var(--pccc-tint); border-radius:14px; padding:.95rem 1.05rem; display:flex; align-items:center; gap:.85rem; }
-.pccc-hero-visual .pccc-mini + .pccc-mini { margin-top:.7rem; }
-.pccc-hero-visual .pccc-mini-ic { flex:0 0 auto; width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; background:var(--pccc-primary); }
-.pccc-hero-visual .pccc-mini-ic.red { background:var(--pccc-accent); }
-.pccc-hero-visual .pccc-mini-ic.gold { background:var(--pccc-secondary); color:var(--pccc-ink); }
-.pccc-hero-visual .pccc-mini-ic svg { stroke:#fff; }
-.pccc-hero-visual .pccc-mini-ic.gold svg { stroke:var(--pccc-ink); }
-.pccc-hero-visual .pccc-mini b { display:block; color:var(--pccc-ink); font-size:.98rem; }
-.pccc-hero-visual .pccc-mini span { color:var(--pccc-muted); font-size:.82rem; }
-
-/* ============================================================
-   STATS — nền nhạt, số navy
-   ============================================================ */
-.pccc-stat .wp-block-heading { color: var(--pccc-primary); line-height: 1; font-weight: 800; }
-.pccc-stat::after { content:""; display:block; width:30px; height:3px; background:var(--pccc-secondary); margin:.6rem auto 0; border-radius:3px; }
-
-/* ============================================================
-   CARDS — DỊCH VỤ (phẳng, bóng mềm)
-   ============================================================ */
-.pccc-card {
-	background:#fff; border:1px solid var(--pccc-border); border-radius: var(--pccc-radius);
-	box-shadow: var(--pccc-shadow-sm); height:100%; overflow:hidden;
-	transition: transform .18s ease, box-shadow .18s ease;
-}
-.pccc-card:hover { transform: translateY(-4px); box-shadow: var(--pccc-shadow); }
-.pccc-card .wp-block-image img { width:100%; aspect-ratio:16/10; object-fit:cover; }
-
-/* Icon dịch vụ — nền xanh nhạt, icon xanh (đồng nhất, dịu) */
-.pccc-icon {
-	width:58px; height:58px; border-radius:14px;
-	display:flex; align-items:center; justify-content:center;
-	background:#EAF1FC; color:var(--pccc-primary); margin:0 0 .2rem;
-}
-.pccc-icon svg { width:28px; height:28px; }
-.pccc-icon.red { background:#FDECEB; color:var(--pccc-accent); }
-
-/* ---------- Lời giới thiệu — ảnh ---------- */
-.pccc-about-img img {
-	width:100%; border-radius: var(--pccc-radius); object-fit:cover; aspect-ratio:4/3;
-	box-shadow: var(--pccc-shadow);
-}
-
-/* ---------- Hình ảnh công ty (gallery) ---------- */
-.pccc-gallery.wp-block-gallery { gap: 1.1rem; }
-.pccc-gallery figure.wp-block-image { border-radius: var(--pccc-radius); overflow:hidden; box-shadow: var(--pccc-shadow-sm); }
-.pccc-gallery figure.wp-block-image img { width:100%; aspect-ratio:4/3; object-fit:cover; transition: transform .35s ease; }
-.pccc-gallery figure.wp-block-image:hover img { transform: scale(1.06); }
-
-/* ---------- Banner (lưới 3 cột: giới thiệu / hình ảnh / tại sao–sứ mệnh) ---------- */
-.pccc-banner .pccc-card { background:#fff; height:auto; }
-.pccc-banner .pccc-icon { width:46px; height:46px; border-radius:12px; margin-bottom:.55rem; }
-.pccc-banner .pccc-icon svg { width:23px; height:23px; }
-.pccc-banner .pccc-card h3 { margin:0 0 .4rem; }
-.pccc-banner .pccc-card ul.wp-block-list { margin:0; padding-left:1.15rem; }
-.pccc-banner .pccc-card ul.wp-block-list li { margin-bottom:.4rem; }
-.pccc-banner-img img { width:100%; border-radius:14px; object-fit:cover; aspect-ratio:16/10; box-shadow: var(--pccc-shadow-sm); }
-@media (min-width:782px){ .pccc-banner-grid.wp-block-columns { align-items:flex-start; } }
-
-/* ============================================================
-   GRID DỰ ÁN / SẢN PHẨM (Query Loop cards)
-   ============================================================ */
-.wp-block-query .pccc-card .wp-block-post-featured-image { position:relative; margin:0; }
-.wp-block-query .pccc-card .wp-block-post-featured-image img { aspect-ratio:16/10; object-fit:cover; width:100%; }
-.wp-block-query .pccc-card .wp-block-post-title { font-weight:700; }
-.wp-block-query .pccc-card .wp-block-post-title a { text-decoration:none; color:var(--pccc-ink); }
-.wp-block-query .pccc-card .wp-block-post-title a:hover { color:var(--pccc-primary); }
-.wp-block-query .pccc-card .wp-block-post-excerpt__excerpt { color:var(--pccc-muted); }
-.wp-block-query .pccc-card .wp-block-post-excerpt .wp-block-post-excerpt__more-link,
-.wp-block-query .pccc-card .more-link { color:var(--pccc-accent); font-weight:700; text-decoration:none; }
-
-/* --- Căn đều các thẻ trong lưới (thẳng hàng) --- */
-.wp-block-query .pccc-card { display:flex; flex-direction:column; }
-.wp-block-query .pccc-card > .wp-block-group { flex:1 1 auto; display:flex; flex-direction:column; }
-/* tiêu đề cố định đúng 2 dòng */
-.wp-block-query .pccc-card .wp-block-post-title {
-	display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-	height:2.74em; margin:0 0 .1rem; line-height:1.35;
-}
-/* nút thêm giỏ: full width, 1 dòng */
-.wp-block-query .pccc-card .pccc-add-cart { display:flex; width:100% !important; box-sizing:border-box; white-space:nowrap; margin:.4rem 0 0; }
-/* mô tả: đẩy xuống dưới + cố định 2 dòng để các thẻ bằng nhau */
-.wp-block-query .pccc-card .wp-block-post-excerpt { margin-top:auto; padding-top:.7rem; }
-.wp-block-query .pccc-card .wp-block-post-excerpt__excerpt {
-	display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-}
-.wp-block-query .pccc-card .wp-block-post-excerpt .wp-block-post-excerpt__more-link { display:inline-block; margin-top:.4rem; }
-
-/* ============================================================
-   DANH MỤC SẢN PHẨM — bộ lọc dạng pill + nhãn danh mục
-   ============================================================ */
-/* Hàng lọc danh mục trên trang archive sản phẩm */
-.pccc-cat-filter__title { margin:0 0 .9rem; color:var(--pccc-muted); }
-.pccc-cat-filter .wp-block-categories {
-	list-style:none; margin:0; padding:0;
-	display:flex; flex-wrap:wrap; gap:.6rem;
-}
-.pccc-cat-filter .wp-block-categories li { margin:0; }
-.pccc-cat-filter .wp-block-categories a {
-	display:inline-flex; align-items:center; gap:.4rem;
-	padding:.5rem 1rem; border-radius:999px;
-	background:#fff; border:1px solid var(--pccc-border);
-	color:var(--pccc-ink); font-weight:600; font-size:.92rem; line-height:1;
-	text-decoration:none; transition:all .15s ease;
-}
-.pccc-cat-filter .wp-block-categories a:hover {
-	border-color:var(--pccc-primary); color:var(--pccc-primary);
-	background:var(--pccc-tint); transform:translateY(-1px);
-}
-/* số lượng sản phẩm sau tên danh mục */
-.pccc-cat-filter .wp-block-categories li > a + * ,
-.pccc-cat-filter .wp-block-categories .post-count {
-	color:var(--pccc-muted); font-weight:600; font-size:.82rem;
-}
-
-/* Nhãn danh mục (clickable) trên trang chi tiết sản phẩm */
-.pccc-product-terms { display:flex; flex-wrap:wrap; gap:.4rem; margin:0; }
-.pccc-product-terms a {
-	display:inline-flex; align-items:center;
-	padding:.28rem .8rem; border-radius:999px;
-	background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.28);
-	color:#fff !important; font-weight:700; font-size:.78rem;
-	letter-spacing:.02em; text-decoration:none; transition:background .15s ease;
-}
-.pccc-product-terms a:hover { background:var(--pccc-secondary); color:var(--pccc-ink) !important; border-color:var(--pccc-secondary); }
-
-/* ---------- HERO trang danh mục (thay nền xanh phẳng) ---------- */
-.pccc-cat-hero {
-	position:relative; overflow:hidden;
-	background:
-		radial-gradient(640px 300px at 86% -25%, rgba(247,198,0,.18), transparent 60%),
-		radial-gradient(560px 340px at 104% 130%, rgba(232,49,42,.20), transparent 55%),
-		linear-gradient(115deg, #15264A 0%, #1E4FA3 58%, #2A62C4 100%);
-}
-/* icon lưới danh mục trang trí, mờ, góc phải */
-.pccc-cat-hero::after {
-	content:""; position:absolute; right:-24px; top:50%; transform:translateY(-50%);
-	width:300px; height:300px; pointer-events:none; opacity:.10;
-	background:no-repeat center/contain url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.6%22%2F%3E%3C%2Fsvg%3E");
-}
-@media (max-width:781px){ .pccc-cat-hero::after { display:none; } }
-.pccc-cat-hero > * { position:relative; z-index:1; }
-.pccc-cat-hero__title { margin:.15rem 0 0; }
-.pccc-cat-hero__desc { max-width:680px; margin-top:.7rem; font-size:1.02rem; line-height:1.65; }
-/* eyebrow đổi sang vàng/gold cho hợp nền tối */
-.pccc-cat-hero__eyebrow { color:var(--pccc-secondary); }
-.pccc-cat-hero__eyebrow::before { background:var(--pccc-secondary); }
-
-/* ---------- Breadcrumb (nền tối) ---------- */
-.pccc-breadcrumb {
-	display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
-	margin:0 0 1.1rem; font-size:.85rem; color:#cbd7ee;
-}
-.pccc-breadcrumb a { color:#e3ebfa; font-weight:600; text-decoration:none; transition:color .15s ease; }
-.pccc-breadcrumb a:hover { color:var(--pccc-secondary); }
-.pccc-bc-sep { color:rgba(255,255,255,.42); }
-.pccc-bc-current { color:#fff; font-weight:600; }
-
-/* ============================================================
-   PLACEHOLDER ẢNH — sản phẩm/dự án chưa có ảnh
-   ============================================================ */
-.pccc-img-placeholder {
-	display:flex; align-items:center; justify-content:center;
-	width:100%; min-height:200px;
-	background:linear-gradient(135deg, var(--pccc-tint), #e9eff8);
-	border-bottom:1px solid var(--pccc-border);
-	color:var(--pccc-primary); text-decoration:none;
-}
-.pccc-img-placeholder__icon { width:56px; height:56px; opacity:.55; }
-.pccc-img-placeholder__icon svg { width:100%; height:100%; }
-a.pccc-img-placeholder:hover .pccc-img-placeholder__icon { opacity:.8; }
-
-/* ============================================================
-   PHÂN TRANG (query pagination)
-   ============================================================ */
-.pccc-pagination { margin-top:2.5rem; gap:.4rem; flex-wrap:wrap; align-items:center; }
-.pccc-pagination .wp-block-query-pagination-numbers { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; }
-.pccc-pagination a,
-.pccc-pagination .page-numbers {
-	display:inline-flex; align-items:center; justify-content:center;
-	min-width:42px; height:42px; padding:0 .75rem; box-sizing:border-box;
-	border:1px solid var(--pccc-border); border-radius:10px;
-	background:#fff; color:var(--pccc-ink); font-weight:600; line-height:1;
-	text-decoration:none; transition:all .15s ease;
-}
-.pccc-pagination a:hover,
-.pccc-pagination .page-numbers:hover { border-color:var(--pccc-primary); color:var(--pccc-primary); }
-.pccc-pagination .page-numbers.current {
-	background:var(--pccc-primary); border-color:var(--pccc-primary); color:#fff;
-}
-.pccc-pagination .page-numbers.dots {
-	border:none; background:transparent; min-width:auto; color:var(--pccc-muted);
-}
-.pccc-pagination .wp-block-query-pagination-previous,
-.pccc-pagination .wp-block-query-pagination-next { font-weight:600; }
-
-/* ============================================================
-   CTA BAND — đỏ phẳng, thân thiện
-   ============================================================ */
-.pccc-cta-band { background: var(--pccc-accent); }
-
-/* ============================================================
-   FLOAT BUTTONS
-   ============================================================ */
-.pccc-float { position:fixed; right:18px; bottom:18px; z-index:9999; display:flex; flex-direction:column; gap:12px; }
-.pccc-float a {
-	width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-	color:#fff; font-weight:800; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,.22);
-	font-size:.72rem; text-align:center; line-height:1.05;
-}
-.pccc-float .pccc-phone { background:var(--pccc-accent); animation:pccc-pulse 2s infinite; }
-.pccc-float .pccc-zalo { background:#0068ff; }
-@keyframes pccc-pulse { 0%{box-shadow:0 0 0 0 rgba(232,49,42,.5);} 70%{box-shadow:0 0 0 14px rgba(232,49,42,0);} 100%{box-shadow:0 0 0 0 rgba(232,49,42,0);} }
-@media (prefers-reduced-motion: reduce) { .pccc-float .pccc-phone { animation: none; } }
-
-/* ============================================================
-   FOOTER (navy — neo trang)
-   ============================================================ */
-.pccc-footer a { color:#cdd7ee; text-decoration:none; }
-.pccc-footer a:hover { color:var(--pccc-secondary); }
-.pccc-footer .wp-block-heading { color:#fff; }
-
-/* ============================================================
-   PAGE / CONTENT — page header xanh phẳng (đơn giản)
-   ============================================================ */
-.pccc-page-header { background: var(--pccc-primary); }
-/* chi tiết sản phẩm: ảnh nằm trong nội dung, tối đa 200px */
-.pccc-product-image { margin:0 0 1.6rem; }
-.pccc-product-image img { width:auto; max-width:200px; height:auto; border-radius:12px; box-shadow:var(--pccc-shadow-sm); }
-@media (max-width: 781px) {
-	.pccc-product-head .wp-block-post-title { font-size:1.6rem !important; }
-}
-.entry-content table { width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:var(--pccc-shadow-sm); }
-.entry-content table th, .entry-content table td { border:1px solid var(--pccc-border); padding:.7rem .9rem; text-align:left; font-size:.97rem; }
-.entry-content table th { background:var(--pccc-primary); color:#fff; }
-.entry-content table.is-style-stripes tr:nth-child(even) { background:var(--pccc-tint); }
-.entry-content h2 { margin-top:2.2rem; }
-.entry-content :is(h2,h3) { scroll-margin-top:90px; }
-/* Giữ bề rộng đoạn văn dễ đọc dù vùng nội dung rộng (bảng/cột vẫn rộng) */
-.entry-content > :is(p, ul, ol, h2, h3, h4, blockquote) { max-width: 880px; }
-
-/* form liên hệ */
-.pccc-form input:focus, .pccc-form textarea:focus { outline:2px solid var(--pccc-primary); border-color:var(--pccc-primary); }
-.pccc-form button:hover { background:#163C7C !important; }
-
-/* focus rõ ràng cho bàn phím */
-a:focus-visible, button:focus-visible, .wp-block-button__link:focus-visible { outline:3px solid #98b6e6; outline-offset:2px; }
-
-@media (max-width: 781px) {
-	.pccc-topbar { display:none; }
-	.pccc-hero { text-align:center; }
-	.pccc-trust { justify-content:center; }
-}
-
-/* ============================================================
-   GIỎ HÀNG / YÊU CẦU BÁO GIÁ  (giữ nguyên chức năng)
-   ============================================================ */
-
-.pccc-add-cart {
-	display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
-	margin-top:.7rem; width:100%;
-	background:var(--pccc-primary); color:#fff; border:0; cursor:pointer;
-	font-weight:700; font-size:.9rem; font-family:inherit;
-	padding:.6rem .9rem; border-radius:10px;
-	transition: background-color .16s ease, transform .16s ease, box-shadow .16s ease;
-}
-.pccc-add-cart:hover { background:var(--pccc-primary-dark); transform:translateY(-2px); box-shadow:0 10px 22px rgba(30,79,163,.28); }
-.pccc-add-cart.is-added { background:#1a8a4a; }
-.pccc-add-cart svg { width:18px; height:18px; }
-
-.pccc-add-cart--lg { width:auto; margin-top:1.1rem; padding:.85rem 1.6rem; font-size:1rem; background:var(--pccc-accent); }
-.pccc-add-cart--lg:hover { background:#b81f19; box-shadow:0 12px 26px rgba(232,49,42,.30); }
-
-.pccc-cart-fab { position:relative; background:var(--pccc-secondary) !important; color:var(--pccc-ink) !important; }
-.pccc-cart-fab svg { width:24px; height:24px; }
-.pccc-cart-badge {
-	position:absolute; top:-4px; right:-4px; min-width:22px; height:22px; padding:0 5px;
-	background:var(--pccc-accent); color:#fff; border-radius:999px;
-	font-size:.74rem; font-weight:800; display:none; align-items:center; justify-content:center;
-	box-shadow:0 2px 6px rgba(0,0,0,.25); border:2px solid #fff;
-}
-
-#pccc-toast {
-	position:fixed; left:50%; bottom:26px; transform:translate(-50%,140%);
-	background:var(--pccc-ink); color:#fff; padding:.85rem 1.2rem; border-radius:12px;
-	box-shadow:var(--pccc-shadow-lg); z-index:10000; max-width:min(92vw,460px);
-	font-size:.92rem; transition:transform .28s cubic-bezier(.2,.9,.3,1.2); pointer-events:auto;
-}
-#pccc-toast.is-show { transform:translate(-50%,0); }
-#pccc-toast a { color:var(--pccc-secondary); font-weight:700; text-decoration:none; white-space:nowrap; }
-
-.pccc-cart-grid { display:grid; grid-template-columns:1fr 360px; gap:2rem; align-items:start; }
-.pccc-cart-table { width:100%; border-collapse:collapse; background:#fff; border-radius:var(--pccc-radius); overflow:hidden; box-shadow:var(--pccc-shadow-sm); }
-.pccc-cart-table th { background:var(--pccc-primary); color:#fff; text-align:left; padding:.8rem 1rem; font-size:.92rem; }
-.pccc-cart-table td { border-top:1px solid var(--pccc-border); padding:.85rem 1rem; vertical-align:middle; }
-.pccc-ci-name a { color:var(--pccc-ink); font-weight:700; text-decoration:none; }
-.pccc-ci-name a:hover { color:var(--pccc-primary); }
-.pccc-qty { display:inline-flex; align-items:center; border:1px solid var(--pccc-border); border-radius:10px; overflow:hidden; }
-.pccc-qty button { width:34px; height:34px; border:0; background:#f3f6fd; color:var(--pccc-ink); font-size:1.1rem; font-weight:700; cursor:pointer; }
-.pccc-qty button:hover { background:var(--pccc-secondary); }
-.pccc-qty-inp { width:46px; height:34px; border:0; text-align:center; font-weight:700; font-family:inherit; color:var(--pccc-ink); -moz-appearance:textfield; }
-.pccc-qty-inp::-webkit-outer-spin-button, .pccc-qty-inp::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-.pccc-ci-rm { text-align:right; }
-.pccc-ci-remove { border:0; background:transparent; color:var(--pccc-muted); font-size:1rem; cursor:pointer; padding:.3rem .5rem; border-radius:8px; }
-.pccc-ci-remove:hover { background:#fdecec; color:var(--pccc-accent); }
-.pccc-cart-actions { display:flex; justify-content:space-between; align-items:center; margin-top:1rem; flex-wrap:wrap; gap:.6rem; }
-.pccc-link { background:none; border:0; cursor:pointer; color:var(--pccc-primary); font-weight:700; text-decoration:none; font-family:inherit; font-size:.95rem; }
-.pccc-link:hover { text-decoration:underline; }
-.pccc-link-danger { color:var(--pccc-accent); }
-
-.pccc-cart-side { background:#fff; border:1px solid var(--pccc-border); border-radius:var(--pccc-radius); padding:1.4rem; box-shadow:var(--pccc-shadow-sm); position:sticky; top:90px; }
-.pccc-cart-side h3 { margin:0 0 1rem; font-size:1.15rem; }
-.pccc-cart-side label { display:block; font-size:.85rem; font-weight:700; color:var(--pccc-muted); margin-bottom:.85rem; }
-.pccc-cart-side input, .pccc-cart-side textarea {
-	display:block; width:100%; margin-top:.35rem; padding:.65rem .8rem; font-family:inherit; font-size:.95rem;
-	border:1px solid var(--pccc-border); border-radius:10px; background:#fbfcff; color:var(--pccc-ink); box-sizing:border-box;
-}
-.pccc-cart-side input:focus, .pccc-cart-side textarea:focus { outline:2px solid var(--pccc-primary); border-color:var(--pccc-primary); }
-#pccc-preview { background:#f3f6fd; font-size:.82rem; line-height:1.5; }
-.pccc-btn { display:flex; align-items:center; justify-content:center; gap:.5rem; width:100%; box-sizing:border-box; margin-top:.7rem; padding:.85rem 1rem; border:0; border-radius:12px; font-family:inherit; font-weight:800; font-size:.98rem; cursor:pointer; text-decoration:none; transition:transform .16s ease, box-shadow .16s ease, background-color .16s; }
-.pccc-btn-primary { background:var(--pccc-primary); color:#fff; }
-.pccc-btn-zalo { background:#0068ff; color:#fff; }
-.pccc-btn-zalo:hover { background:#0055d4; transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,104,255,.32); }
-.pccc-btn-ghost { background:#f3f6fd; color:var(--pccc-ink); }
-.pccc-btn-ghost:hover { background:#e7ecf6; }
-.pccc-cart-hint { font-size:.8rem; color:var(--pccc-muted); margin:.9rem 0 0; line-height:1.5; }
-
-.pccc-cart-empty { text-align:center; padding:3rem 1rem; }
-.pccc-cart-empty-ic { font-size:3.4rem; }
-.pccc-cart-empty h3 { margin:.6rem 0 .4rem; }
-.pccc-cart-empty p { color:var(--pccc-muted); margin:0 auto 1.4rem; max-width:420px; }
-.pccc-cart-empty .pccc-btn { display:inline-flex; width:auto; padding:.8rem 1.8rem; }
-
-@media (max-width: 900px) {
-	.pccc-cart-grid { grid-template-columns:1fr; }
-	.pccc-cart-side { position:static; }
-}
+</header>
+<!-- /wp:group -->

@@ -74,8 +74,11 @@ class Ai1wm_Main_Controller {
 	 * @return void
 	 */
 	private function activate_actions() {
-		// Load core functionality
+		// Load admin header styles
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
+
+		// Load core functionality
+		add_action( 'cli_init', array( $this, 'cli_init' ) );
 		add_action( 'admin_init', array( $this, 'init' ) );
 		add_action( 'admin_init', array( $this, 'router' ) );
 		add_action( 'admin_init', array( $this, 'wp_importing' ), 5 );
@@ -91,7 +94,6 @@ class Ai1wm_Main_Controller {
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_loaded' ), 10 );
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_commands' ), 10 );
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_buttons' ), 10 );
-		add_action( 'plugins_loaded', array( $this, 'wp_cli' ), 10 );
 
 		// Register scripts and styles
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_servmask_scripts_and_styles' ), 5 );
@@ -242,6 +244,12 @@ class Ai1wm_Main_Controller {
 
 		// Add storage folder daily cleanup cron
 		add_action( 'ai1wm_storage_cleanup', 'Ai1wm_Export_Controller::cleanup' );
+
+		// Register REST API routes
+		add_action( 'rest_api_init', 'Ai1wm_Rest_Controller::register_routes' );
+
+		// Let a valid secret_key authenticate read-only poll/log routes after an import wipes user credentials
+		add_filter( 'rest_authentication_errors', 'Ai1wm_Rest_Controller::allow_secret_key_auth', 1000 );
 	}
 
 	/**
@@ -249,7 +257,7 @@ class Ai1wm_Main_Controller {
 	 *
 	 * @return void
 	 */
-	public function wp_cli() {
+	public function cli_init() {
 		if ( defined( 'WP_CLI' ) && count( Ai1wm_Extensions::get() ) === 0 ) {
 			WP_CLI::add_command( 'ai1wm', 'Ai1wm_WP_CLI_Command', array( 'shortdesc' => __( 'All-in-One WP Migration Command', 'all-in-one-wp-migration' ) ) );
 		}
@@ -850,7 +858,7 @@ class Ai1wm_Main_Controller {
 				'please_do_not_close_this_browser'    => __( 'Please do not close this browser window or your import will fail', 'all-in-one-wp-migration' ),
 				'backup_encrypted'                    => __( 'The backup is encrypted', 'all-in-one-wp-migration' ),
 				'backup_encrypted_message'            => __( 'Please enter a password to restore the backup', 'all-in-one-wp-migration' ),
-				'submit'                              => __( 'Submit', 'all-in-one-wp-migration' ),
+				'unlock'                              => __( 'Unlock', 'all-in-one-wp-migration' ),
 				'enter_password'                      => __( 'Enter a password', 'all-in-one-wp-migration' ),
 				'repeat_password'                     => __( 'Repeat the password', 'all-in-one-wp-migration' ),
 				'passwords_do_not_match'              => __( 'The passwords do not match', 'all-in-one-wp-migration' ),

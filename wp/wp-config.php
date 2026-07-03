@@ -1,4 +1,6 @@
 <?php
+define( 'WP_CACHE', true );
+
 /**
  * The base configuration for WordPress
  *
@@ -22,24 +24,9 @@
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
-/**
- * URL site: tự nhận biết môi trường.
- * - Chạy local (máy phát triển) -> dùng địa chỉ 127.0.0.1:8080
- * - Khi đã đưa lên hosting (truy cập bằng domain thật) -> tự dùng domain đó
- */
-$pccc_host = $_SERVER['HTTP_HOST'] ?? '';
-if ( $pccc_host === '127.0.0.1:8080' || $pccc_host === 'localhost:8080' ) {
-	define( 'WP_HOME',    'http://' . $pccc_host );
-	define( 'WP_SITEURL', 'http://' . $pccc_host );
-} elseif ( $pccc_host !== '' ) {
-	// Trên hosting: dùng đúng domain đang truy cập (http/https tự nhận).
-	$pccc_scheme = ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ) ? 'https' : 'http';
-	define( 'WP_HOME',    $pccc_scheme . '://' . $pccc_host );
-	define( 'WP_SITEURL', $pccc_scheme . '://' . $pccc_host );
-} else {
-	define( 'WP_HOME',    'https://pcccphuoclong.vn' );
-	define( 'WP_SITEURL', 'https://pcccphuoclong.vn' );
-}
+
+define( 'WP_HOME',    'https://pcccphuoclong.vn' );
+define( 'WP_SITEURL', 'https://pcccphuoclong.vn' );
 
 define( 'DB_NAME', 'pccc' );
 
@@ -111,6 +98,8 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	define( 'WP_DEBUG', false );
 }
 
+define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DISABLE_FATAL_ERROR_HANDLER', false );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
