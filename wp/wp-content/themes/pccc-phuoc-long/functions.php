@@ -301,6 +301,102 @@ function pccc_pl_cart_shortcode() {
 add_shortcode( 'pccc_cart', 'pccc_pl_cart_shortcode' );
 
 /**
+ * Danh sách sản phẩm được gắn nhãn "Giá tốt nhất thị trường".
+ * Thêm/bớt bằng cách sửa slug (đuôi URL của sản phẩm) trong mảng dưới đây.
+ * Ngoài ra, sản phẩm có custom field '_pccc_best_price' = 1 cũng được gắn nhãn.
+ */
+function pccc_pl_best_price_products() {
+	return apply_filters(
+		'pccc_pl_best_price_products',
+		array(
+			'binh-chua-chay-bot-abc-4kg', // Bình chữa cháy bột ABC 4kg
+		)
+	);
+}
+
+/**
+ * Sản phẩm này có được gắn nhãn không?
+ */
+function pccc_pl_is_best_price( $post_id ) {
+	if ( get_post_meta( $post_id, '_pccc_best_price', true ) ) {
+		return true;
+	}
+	$post = get_post( $post_id );
+	return $post && in_array( $post->post_name, pccc_pl_best_price_products(), true );
+}
+
+/**
+ * Nhãn "Giá tốt nhất thị trường" — làm nổi bật sản phẩm.
+ * Đổi chữ bằng filter 'pccc_pl_best_price_label'.
+ */
+function pccc_pl_best_price_badge( $variant, $post_id ) {
+	if ( ! pccc_pl_is_best_price( $post_id ) ) {
+		return '';
+	}
+	$label = apply_filters( 'pccc_pl_best_price_label', 'Giá tốt nhất thị trường', $post_id );
+	if ( '' === (string) $label ) {
+		return '';
+	}
+
+	$icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>';
+
+	return sprintf(
+		'<span class="pccc-best-price pccc-best-price--%s">%s<span>%s</span></span>',
+		esc_attr( $variant ),
+		$icon,
+		esc_html( $label )
+	);
+}
+
+/**
+ * Lưới sản phẩm (trang danh mục / archive): gắn nhãn đè lên ảnh sản phẩm.
+ * Chạy sau pccc_pl_featured_image_placeholder để nhãn cũng hiện trên ảnh mặc định.
+ */
+function pccc_pl_best_price_on_card( $content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/post-featured-image' ) {
+		return $content;
+	}
+	if ( get_post_type() !== 'sanpham' || is_singular( 'sanpham' ) ) {
+		return $content;
+	}
+	$id = get_the_ID();
+	if ( ! $id ) {
+		return $content;
+	}
+
+	$badge = pccc_pl_best_price_badge( 'overlay', $id );
+	if ( '' === $badge ) {
+		return $content;
+	}
+
+	// Chèn vào trong thẻ bao ảnh (figure/a) — thẻ này đã là position:relative.
+	$pos = strrpos( $content, '</' );
+	if ( false === $pos ) {
+		return $content;
+	}
+	return substr( $content, 0, $pos ) . $badge . substr( $content, $pos );
+}
+add_filter( 'render_block', 'pccc_pl_best_price_on_card', 11, 2 );
+
+/**
+ * Trang chi tiết sản phẩm: nhãn nằm giữa tiêu đề và nút "Thêm vào giỏ".
+ */
+function pccc_pl_best_price_on_single( $content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/post-title' ) {
+		return $content;
+	}
+	if ( ! is_singular( 'sanpham' ) ) {
+		return $content;
+	}
+	$id = get_the_ID();
+	if ( ! $id ) {
+		return $content;
+	}
+	return $content . pccc_pl_best_price_badge( 'lg', $id );
+}
+add_filter( 'render_block', 'pccc_pl_best_price_on_single', 9, 2 );
+
+/**
  * Register block pattern category.
  */
 function pccc_pl_pattern_categories() {

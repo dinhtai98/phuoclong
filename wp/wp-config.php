@@ -25,8 +25,14 @@ define( 'WP_CACHE', true );
 /** The name of the database for WordPress */
 
 
-define( 'WP_HOME',    'https://pcccphuoclong.vn' );
-define( 'WP_SITEURL', 'https://pcccphuoclong.vn' );
+/**
+ * Địa chỉ site. Khi chạy local, start-website.sh đặt biến môi trường
+ * PCCC_LOCAL_URL (vd http://127.0.0.1:8080) để ảnh/CSS dùng http thay vì https.
+ * Trên hosting không có biến này -> vẫn là domain thật.
+ */
+$pccc_local_url = getenv( 'PCCC_LOCAL_URL' );
+define( 'WP_HOME',    $pccc_local_url ? $pccc_local_url : 'https://pcccphuoclong.vn' );
+define( 'WP_SITEURL', $pccc_local_url ? $pccc_local_url : 'https://pcccphuoclong.vn' );
 
 define( 'DB_NAME', 'pccc' );
 

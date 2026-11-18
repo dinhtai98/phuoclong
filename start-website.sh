@@ -20,4 +20,6 @@ echo "------------------------------------------------------------"
 cd "$WPDIR"
 # Cho phép server xử lý nhiều request đồng thời (ảnh, CSS...) — tránh ảnh bị vỡ
 export PHP_CLI_SERVER_WORKERS=8
+# Báo cho wp-config biết đang chạy local -> dùng http, tránh ảnh/CSS bị chặn vì https
+export PCCC_LOCAL_URL="http://127.0.0.1:$PORT"
 exec "$PHP" -d memory_limit=512M "$WP" server --host=0.0.0.0 --port=$PORT --path="$WPDIR"

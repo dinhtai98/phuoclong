@@ -223,6 +223,38 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 }
 .pccc-product-terms a:hover { background:var(--pccc-secondary); color:var(--pccc-ink) !important; border-color:var(--pccc-secondary); }
 
+/* ---------- Nhãn "Giá tốt nhất thị trường" ---------- */
+.pccc-best-price {
+	display:inline-flex; align-items:center; gap:.35rem;
+	padding:.34rem .74rem .34rem .62rem; border-radius:999px;
+	background:linear-gradient(135deg,#FFDD40 0%,#F7C600 100%);
+	color:var(--pccc-ink); font-weight:800; font-size:.74rem; line-height:1.25;
+	white-space:nowrap; text-decoration:none;
+}
+.pccc-best-price svg { width:13px; height:13px; flex:none; }
+
+/* Trên ảnh sản phẩm trong lưới danh mục */
+.wp-block-post-featured-image:has(> .pccc-best-price--overlay) { position:relative; }
+.pccc-best-price--overlay {
+	position:absolute; top:.7rem; left:.7rem; z-index:2;
+	box-shadow:0 4px 14px rgba(21,38,74,.22);
+}
+/* placeholder ảnh cũng là thẻ <a> chứa nhãn -> giữ chữ không bị gạch chân */
+.pccc-img-placeholder .pccc-best-price { color:var(--pccc-ink); }
+
+/* Trang chi tiết sản phẩm (hero xanh) */
+.pccc-best-price--lg {
+	margin:1.1rem .7rem 0 0; padding:.55rem 1.05rem .55rem .9rem;
+	font-size:.95rem; border-radius:12px; vertical-align:middle;
+	box-shadow:0 10px 24px rgba(247,198,0,.30);
+}
+.pccc-best-price--lg svg { width:17px; height:17px; }
+
+@media (max-width:781px){
+	.pccc-best-price { font-size:.7rem; padding:.3rem .62rem .3rem .52rem; }
+	.pccc-best-price--lg { font-size:.88rem; padding:.5rem .95rem .5rem .8rem; }
+}
+
 /* ---------- HERO trang danh mục (thay nền xanh phẳng) ---------- */
 .pccc-cat-hero {
 	position:relative; overflow:hidden;
@@ -531,7 +563,8 @@ a:focus-visible, button:focus-visible, .wp-block-button__link:focus-visible { ou
 .pccc-add-cart.is-added { background:#1a8a4a; }
 .pccc-add-cart svg { width:18px; height:18px; }
 
-.pccc-add-cart--lg { width:auto; margin-top:1.1rem; padding:.85rem 1.6rem; font-size:1rem; background:var(--pccc-accent); }
+/* margin-top + vertical-align phải khớp với .pccc-best-price--lg để 2 nút không lệch nhau */
+.pccc-add-cart--lg { width:auto; margin-top:1.1rem; padding:.85rem 1.6rem; font-size:1rem; background:var(--pccc-accent); vertical-align:middle; }
 .pccc-add-cart--lg:hover { background:#b81f19; box-shadow:0 12px 26px rgba(232,49,42,.30); }
 
 .pccc-cart-fab { position:relative; background:var(--pccc-secondary) !important; color:var(--pccc-ink) !important; }
