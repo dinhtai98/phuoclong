@@ -60,7 +60,7 @@ echo "==> Sản phẩm mẫu"
 mk_sp () {
   local TITLE="$1"; local CAT="$2"; local DESC="$3"
   local ID=$($WP post create --post_type=sanpham --post_status=publish --post_title="$TITLE" \
-    --post_excerpt="$DESC" --post_content="<!-- wp:paragraph --><p>${DESC}</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><em>Liên hệ 079 8285 114 để được báo giá.</em></p><!-- /wp:paragraph -->" --porcelain)
+    --post_excerpt="$DESC" --post_content="<!-- wp:paragraph --><p>${DESC}</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><em>Liên hệ 0979 187 114 - 0798285 114 để được báo giá.</em></p><!-- /wp:paragraph -->" --porcelain)
   $WP post term set $ID danh_muc_sp "$CAT" >/dev/null 2>&1 || true
   echo "   + $TITLE"
 }
