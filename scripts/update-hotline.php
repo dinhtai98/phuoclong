@@ -3,7 +3,10 @@
  * Đổi hotline hiển thị từ "079 8285 114" sang 2 số:
  *   Hotline 0979 187 114 - 0798285 114
  *
- * Chạy lại nhiều lần an toàn (idempotent): chỉ thay khi còn chuỗi cũ "079 8285 114".
+ * và đổi link Zalo sang 0979187114.
+ *
+ * Chạy lại nhiều lần an toàn (idempotent): chỉ thay khi còn chuỗi cũ "079 8285 114"
+ * hoặc link "zalo.me/0798285114".
  *
  * 1) Cập nhật nội dung trang trong DB (Trang chủ, Giới thiệu, Liên hệ...) — KHÔNG cần WP-CLI:
  *      cd ~/httpdocs && /opt/plesk/php/8.2/bin/php update-hotline.php
@@ -41,9 +44,6 @@ function pl_hotline_replace( $s ) {
 		// Trang Liên hệ — dòng "Hoặc gọi ngay ...".
 		'<a href="tel:0798285114" style="color:#1E4FA3;font-weight:700">079 8285 114</a>'
 			=> '<a href="tel:0979187114" style="color:#1E4FA3;font-weight:700">0979 187 114</a> - <a href="tel:0798285114" style="color:#1E4FA3;font-weight:700">0798285 114</a>',
-		// Link Zalo vẫn là số 0798285114 — chỉ đổi cách hiển thị.
-		'rel="noopener" style="color:#1E4FA3;font-weight:700">079 8285 114</a>'
-			=> 'rel="noopener" style="color:#1E4FA3;font-weight:700">0798285 114</a>',
 		// Dải CTA cuối trang chủ.
 		'📞 079 8285 114</p>' => '📞 Hotline 0979 187 114 - 0798285 114</p>',
 		// Footer.
@@ -51,6 +51,15 @@ function pl_hotline_replace( $s ) {
 		// Mọi chỗ còn lại (bảng Giới thiệu, ...).
 		'079 8285 114'        => '0979 187 114 - 0798285 114',
 	);
+	// Link Zalo (trang Liên hệ) → số 0979 187 114. Chạy trước bảng thay chung
+	// để chữ hiển thị trong link Zalo không bị đổi thành "2 số".
+	$s = preg_replace(
+		'#(href="https://zalo\.me/)0798285114("[^>]*>)(?:079 8285 114|0798285 114)(</a>)#u',
+		'${1}0979187114${2}0979 187 114${3}',
+		$s
+	);
+	$s = str_replace( 'zalo.me/0798285114', 'zalo.me/0979187114', $s );
+
 	foreach ( $map as $from => $to ) {
 		$s = str_replace( $from, $to, $s );
 	}
@@ -100,11 +109,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $wpdb;
 $rows = $wpdb->get_results(
 	"SELECT ID, post_type, post_name, post_content FROM {$wpdb->posts}
-	 WHERE post_type NOT IN ('revision') AND post_content LIKE '%079 8285 114%'"
+	 WHERE post_type NOT IN ('revision')
+	   AND ( post_content LIKE '%079 8285 114%' OR post_content LIKE '%zalo.me/0798285114%' )"
 );
 
 if ( ! $rows ) {
-	echo "Không còn chỗ nào hiển thị \"079 8285 114\" — đã cập nhật trước đó.\n";
+	echo "Không còn gì cần đổi — đã cập nhật trước đó.\n";
 	return;
 }
 

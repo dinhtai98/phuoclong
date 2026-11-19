@@ -6,7 +6,7 @@
 	'use strict';
 
 	var CFG = window.PCCC_CART || {};
-	var PHONE = CFG.phone || '0798285114';
+	var PHONE = CFG.phone || '0979187114';
 	var ZALO = CFG.zalo || ( 'https://zalo.me/' + PHONE );
 	var CART_URL = CFG.cartUrl || '/gio-hang/';
 	var SITE = CFG.site || 'PCCC Phước Long';

@@ -71,7 +71,7 @@ function pccc_pl_assets() {
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
-	$phone = '0798285114';
+	$phone = '0979187114';
 	wp_localize_script( 'pccc-pl-cart', 'PCCC_CART', array(
 		'phone'   => $phone,
 		'zalo'    => 'https://zalo.me/' . $phone,
@@ -414,8 +414,8 @@ function pccc_pl_float_buttons() {
 	$cart_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
 	echo '<div class="pccc-float">'
 		. '<a class="pccc-cart-fab" href="' . esc_url( home_url( '/gio-hang/' ) ) . '" title="Giỏ hàng / Yêu cầu báo giá" aria-label="Giỏ hàng">' . $cart_svg . '<span class="pccc-cart-badge">0</span></a>'
-		. '<a class="pccc-phone" href="tel:0798285114" title="Gọi ngay 0798285 114" aria-label="Gọi điện">GỌI<br>NGAY</a>'
-		. '<a class="pccc-zalo" href="https://zalo.me/0798285114" target="_blank" rel="noopener" title="Chat Zalo" aria-label="Chat Zalo">Zalo</a>'
+		. '<a class="pccc-phone" href="tel:0979187114" title="Gọi ngay 0979 187 114" aria-label="Gọi điện">GỌI<br>NGAY</a>'
+		. '<a class="pccc-zalo" href="https://zalo.me/0979187114" target="_blank" rel="noopener" title="Chat Zalo" aria-label="Chat Zalo">Zalo</a>'
 		. '</div>';
 }
 add_action( 'wp_footer', 'pccc_pl_float_buttons' );
